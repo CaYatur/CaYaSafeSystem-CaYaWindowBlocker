@@ -1,106 +1,49 @@
-CaYaSafe Restricted Use License
-Copyright (c) 2024-2026 ÇAĞAN TURGUT / CaYaSafeSystem
+MIT License with Ethical Use Restriction
 
-Bu yazılım ve ilgili belgeler ("Yazılım"), aşağıdaki koşullar çerçevesinde,
-ücretsiz olarak kullanılmak, kopyalanmak, değiştirilmek ve dağıtılmak üzere
-kamuoyuyla paylaşılmaktadır.
+Copyright (c) 2024-2026 ÇAĞAN TURGUT / CaYaDev — CaYaSafeSystem
 
-───────────────────────────────────────────────────────────────────────────────
-İZİN VERİLEN KULLANIM
-───────────────────────────────────────────────────────────────────────────────
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-Bu Yazılımı aşağıdaki amaçlarla kullanabilirsiniz:
+1. The above copyright notice and this permission notice shall be included in
+   all copies or substantial portions of the Software.
 
-1. KİŞİSEL VEYA EĞİTİMSEL KULLANIM
-   Kendi cihazlarınızda veya ebeveyn olarak kendi çocuğunuzun cihazında
-   içerik filtreleme ve denetim amacıyla kullanmak.
+2. ETHICAL USE RESTRICTION — The Software shall not be used, directly or
+   indirectly, for any of the following purposes:
 
-2. KURUMSAL KULLANIM
-   Okullar, kütüphaneler, şirketler gibi kurumlarda; çalışanlara veya
-   öğrencilere BİLGİLENDİRME YAPILARAK ve kurum yöneticisinin yazılı
-   onayıyla kurumsal cihazlarda dağıtmak.
+   a) Surveillance or monitoring of any individual without their explicit,
+      informed consent, including but not limited to covert installation on
+      devices not owned or authorized by the user.
 
-3. ARAŞTIRMA VE GELİŞTİRME
-   Akademik araştırma, güvenlik araştırması veya kişisel geliştirme
-   amacıyla incelemek ve değiştirmek.
+   b) Development, distribution, or deployment of malware, spyware,
+      ransomware, stalkerware, or any tool designed to harm, exploit, or
+      gain unauthorized access to systems or data.
 
-4. YENİDEN DAĞITIM
-   Bu lisans metnini ve telif hakkı bildirimini korumak koşuluyla yazılımı
-   kaynak kodu veya ikili (binary) biçimde yeniden dağıtmak.
+   c) Any activity that violates applicable privacy, data protection, or
+      computer crime laws, including but not limited to Turkey's Law No. 5651,
+      Turkish Penal Code Articles 135–138, KVKK (Law No. 6698), and the EU
+      General Data Protection Regulation (GDPR).
 
-───────────────────────────────────────────────────────────────────────────────
-YASAK OLAN KULLANIM
-───────────────────────────────────────────────────────────────────────────────
+   d) Unauthorized commercial resale or sublicensing of the Software as a
+      standalone product without prior written permission from the copyright
+      holder.
 
-Aşağıdaki kullanımlar bu lisans kapsamında AÇIKÇA YASAKLIDIR:
+   Any use of the Software in violation of these restrictions automatically
+   terminates the rights granted under this license.
 
-1. İZİNSİZ GÖZETİM
-   Kişinin açık rızası olmaksızın, farkında olmadan cihazını izlemek,
-   aktivite kayıtlarını toplamak veya uzaktan erişim sağlamak.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
-2. İZİNSİZ KURULUM
-   Sahibinin bilgisi veya onayı olmaksızın üçüncü bir kişinin cihazına
-   bu yazılımı kurmak veya çalıştırmak.
+---
 
-3. SALDIRI VE İSTİSMAR ARAÇLARI
-   Bu yazılımı kötü amaçlı yazılım (malware), casus yazılım (spyware),
-   fidye yazılımı (ransomware) veya herhangi bir siber saldırı aracı
-   olarak kullanmak, değiştirmek veya dağıtmak.
-
-4. TİCARİ SÖMÜRÜ (İZİNSİZ)
-   Yazılımın tamamını veya önemli bir bölümünü, yazarın (ÇAĞAN TURGUT /
-   CaYaSafeSystem) önceden yazılı izni alınmaksızın ticari ürün veya
-   hizmet olarak satmak ya da kiralamak.
-
-5. YASAL SINIR İHLALİ
-   Herhangi bir ülkenin kişisel verilerin korunması, gizlilik veya bilişim
-   suçlarına ilişkin mevzuatını (Türkiye'de 5651, 5237 TCK md. 135-138,
-   6698 KVKK; AB'de GDPR vb.) ihlal eden biçimde kullanmak.
-
-6. MARKA KÖTÜYE KULLANIMI
-   "CaYaSafeSystem", "CaYaBlockWeb" veya "CaYa" marka/ürün adlarını;
-   sahibinin onayı olmaksızın yanıltıcı biçimde kullanmak.
-
-───────────────────────────────────────────────────────────────────────────────
-SORUMLULUK REDDİ
-───────────────────────────────────────────────────────────────────────────────
-
-BU YAZILIM "OLDUĞU GİBİ" (AS-IS) SAĞLANMAKTADIR; AÇIK VEYA ZIMNİ HİÇBİR
-GARANTİ VERİLMEMEKTEDİR. BU LİSANS KOŞULLARINI İHLAL EDEN VEYA ÜÇÜNCÜ
-TARAFLARA ZARAR VEREN KULLANIMLARIN SORUMLULUĞU TAMAMEN KULLANICIYA AİTTİR.
-
-YAZAR, BU YAZILIMIN YASADIŞI, ETİK DIŞI VEYA YETKİSİZ KULLANIMINDAN
-DOĞAN HİÇBİR ZARARDAN SORUMLU TUTULAMAZ.
-
-───────────────────────────────────────────────────────────────────────────────
-ATIF GEREKSİNİMİ
-───────────────────────────────────────────────────────────────────────────────
-
-Bu Yazılımın kaynak kodunu veya önemli bölümlerini kullanan ya da üzerine
-inşa eden ürün veya projelerin aşağıdaki atıfı içermesi gerekir:
-
-    "Bu ürün, CaYaSafeSystem (https://github.com/CaYatur) tarafından
-     geliştirilen CaYaSafeSystem-CaYaWindowBlocker yazılımını temel almaktadır."
-
-───────────────────────────────────────────────────────────────────────────────
-ETİK SORUMLULUK BİLDİRİMİ
-───────────────────────────────────────────────────────────────────────────────
-
-Bu yazılım; çocukları zararlı içeriklerden korumak, eğitim ortamlarında
-odaklanmayı artırmak ve kurumsal güvenliği sağlamak gibi meşru amaçlar için
-tasarlanmıştır.
-
-Bu Yazılımı kullanan her kişi ve kurum; ilgili ülke yasalarına, kişisel
-verilerin korunması mevzuatına ve temel insan haklarına saygı göstermekle
-yükümlüdür.
-
-Şüpheli veya yasadışı kullanımları bildirmek için:
-    GitHub Issues: https://github.com/CaYatur/CaYaSafeSystem-CaYaWindowBlocker/issues
-
-───────────────────────────────────────────────────────────────────────────────
-
-Bu lisansın herhangi bir hükmü hakkında soru veya ticari lisanslama talebi
-için proje sayfası üzerinden iletişime geçiniz.
-
-Copyright (c) 2024-2026 ÇAĞAN TURGUT / CaYaSafeSystem
-Tüm hakları saklıdır — yasalara aykırı kullanım kesinlikle yasaktır.
+To report suspected misuse:
+  https://github.com/CaYatur/CaYaSafeSystem-CaYaWindowBlocker/issues
