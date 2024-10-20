@@ -476,10 +476,19 @@ Ayrıntılar için `LICENSE` dosyasına bakınız.
 
 ---
 
+## Proje tarihleri / Project dates
+
+| | |
+|---|---|
+| Oluşturulma / Created | 20 Ekim 2023 / 20 October 2023 |
+| Son güncelleme / Last updated | 20 Ekim 2024 / 20 October 2024 |
+
+---
+
 <div align="center">
 
 Made with ❤️ by **[CaYaDev](https://github.com/CaYatur)** · *CaYaSafe* ürün serisi
 
-© 2024-2026 ÇAĞAN TURGUT
+© 2023-2024 ÇAĞAN TURGUT
 
 </div>
