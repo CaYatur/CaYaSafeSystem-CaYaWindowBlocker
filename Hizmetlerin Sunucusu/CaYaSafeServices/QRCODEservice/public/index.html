@@ -1,0 +1,929 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giriş Sistemi CaYaSafe</title>
+    <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+    <style>
+      #modal-container {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 1); /* Arka plan rengi ve opaklık */
+        justify-content: center;
+        align-items: center;
+        display: flex;
+      }
+
+      /* Modal İçeriği */
+      #modal-content {
+        background: #0000;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        max-width: 600px;
+        width: 100%;
+      }
+
+      /* Kapatma Butonu */
+      #modal-close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+      }
+
+      body {
+        background: #8100cc;
+      }
+      #loader {
+        width: 100px;
+        height: 40px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -20px -50px;
+      }
+      #loader div {
+        width: 20px;
+        height: 20px;
+        background: #fff;
+        border-radius: 50%;
+        position: absolute;
+      }
+      #d1 {
+        animation: animate 2s linear infinite;
+      }
+      #d2 {
+        animation: animate 2s linear infinite -0.4s;
+      }
+      #d3 {
+        animation: animate 2s linear infinite -0.8s;
+      }
+      #d4 {
+        animation: animate 2s linear infinite -1.2s;
+      }
+      #d5 {
+        animation: animate 2s linear infinite -1.6s;
+      }
+      @-webkit-keyframes animate {
+        0% {
+          left: 100px;
+          top: 0;
+        }
+        80% {
+          left: 0;
+          top: 0;
+        }
+        85% {
+          left: 0;
+          top: -20px;
+          width: 20px;
+          height: 20px;
+        }
+        90% {
+          width: 40px;
+          height: 15px;
+        }
+        95% {
+          left: 100px;
+          top: -20px;
+          width: 20px;
+          height: 20px;
+        }
+        100% {
+          left: 100px;
+          top: 0;
+        }
+      }
+
+      body {
+        text-align: center;
+        background-color: #f2f2f2; /* Arka plan rengi */
+        padding: 20px; /* Sayfa iç kenar boşluğu */
+      }
+
+      body {
+        font-family: "Arial", sans-serif; /* Örnek bir yazı tipi */
+      }
+
+      h1,
+      h2,
+      h3 {
+        color: #333; /* Başlık renkleri */
+      }
+
+      p {
+        color: #555; /* Paragraf rengi */
+      }
+
+      button {
+        box-shadow: 2px 2px 5px #888888; /* Gölge efekti */
+        border: 2px solid #ccc; /* Kenarlık rengi */
+      }
+
+      h1 {
+        font-size: 3em;
+        font-weight: bold;
+        color: BDC3C7; /* Başlık rengi */
+        margin-top: 20px;
+      }
+      h1,
+      button {
+        opacity: 0;
+        animation: fadeIn 1s ease-in-out forwards;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .deleteButton:hover,
+      #setAllDevicesTrue:hover,
+      #openRemoteDevice:hover,
+      #SaveRemoteDevice:hover {
+        background-color: #2c3e50; /* Hover rengi */
+        transform: scale(1.1); /* Hafif büyüme */
+        transition:
+          background-color 0.3s,
+          transform 0.3s;
+        color: #95a5a6;
+      }
+
+      body {
+        background-color: #f2f2f2; /* Arka plan rengi */
+        animation: backgroundAnimation 100s infinite alternate;
+      }
+
+      @keyframes backgroundAnimation {
+        0% {
+          background-color: #1abc9c;
+        }
+        10% {
+          background-color: #2ecc71;
+        }
+        20% {
+          background-color: #3498db;
+        }
+        30% {
+          background-color: #9b59b6;
+        }
+        40% {
+          background-color: #16a085;
+        }
+        50% {
+          background-color: #27ae60;
+        }
+        60% {
+          background-color: #2980b9;
+        }
+        70% {
+          background-color: #8e44ad;
+        }
+        80% {
+          background-color: #f1c40f;
+        }
+        90% {
+          background-color: #e67e22;
+        }
+        100% {
+          background-color: #e74c3c;
+        }
+      }
+
+      #deviceList li {
+        opacity: 0;
+        animation: fadeIn 1s ease-in-out forwards;
+      }
+
+      /* Mobil tarayıcıları için stil kuralları */
+      @media screen and (max-width: 767px) {
+        body {
+          zoom: 0.4;
+          font-size: 20px;
+        }
+      }
+
+      @media screen and (max-width: 767px) {
+        /* Mobil tarayıcılar için stil kuralları */
+        body {
+          font-size: 16px;
+        }
+      }
+
+      @media screen and (min-width: 768px) {
+        /* Masaüstü tarayıcılar için stil kuralları */
+        body {
+          font-size: 18px;
+        }
+      }
+
+      .deleteButton {
+        background-color: #e74033; /* Buton arkaplan rengi */
+        color: #fff; /* Buton metin rengi */
+        border: none; /* Buton kenarlık yok */
+        padding: 10px 20px; /* Buton iç boşlukları */
+        font-size: 40px; /* Buton metin boyutu */
+        cursor: pointer; /* Fare imlecini göster */
+        border-radius: 5px; /* Buton köşe yuvarlama */
+      }
+
+      #setAllDevicesTrue {
+        width: 280px; /* Düğmenin genişliği */
+        height: 65px; /* Düğmenin yüksekliği */
+        padding: 15px; /* İçerik ile düğme kenarı arasındaki boşluk */
+        font-size: 16px; /* Düğme metni boyutu */
+      }
+      #savedDevices {
+        width: 500px; /* Düğmenin genişliği */
+        height: 150px; /* Düğmenin yüksekliği */
+        padding: 15px; /* İçerik ile düğme kenarı arasındaki boşluk */
+        font-size: 40px;
+        margin: auto;
+      }
+      #deviceList {
+        width: 500px; /* Düğmenin genişliği */
+        height: 150px; /* Düğmenin yüksekliği */
+        padding: 15px; /* İçerik ile düğme kenarı arasındaki boşluk */
+        font-size: 60px;
+      }
+      #deviceForm {
+        width: 500px; /* Düğmenin genişliği */
+        height: 150px; /* Düğmenin yüksekliği */
+        padding: 15px; /* İçerik ile düğme kenarı arasındaki boşluk */
+        font-size: 40px;
+        margin: auto;
+      }
+      #deviceForm input,
+      #deviceForm button {
+        font-size: 40px; /* Input ve button öğelerini de büyütür */
+      }
+      #qr-video-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        color: #ffd04b;
+      }
+      #openRemoteDevice {
+        width: 280px; /* Düğmenin genişliği */
+        height: 65px; /* Düğmenin yüksekliği */
+        padding: 15px; /* İçerik ile düğme kenarı arasındaki boşluk */
+        font-size: 16px; /* Düğme metni boyutu */
+      }
+      #TwoOpenSystem {
+        width: 300px; /* Düğmenin genişliği */
+        height: 170px; /* Düğmenin yüksekliği */
+        padding: 15px; /* İçerik ile düğme kenarı arasındaki boşluk */
+        font-size: 16px; /* Düğme metni boyutu */
+      }
+      #SaveRemoteDevice {
+        width: 280px; /* Düğmenin genişliği */
+        height: 65px; /* Düğmenin yüksekliği */
+        padding: 15px; /* İçerik ile düğme kenarı arasındaki boşluk */
+        font-size: 16px; /* Düğme metni boyutu */
+      }
+
+      #qr-video {
+        width: 80%; /* Video genişliği */
+        max-width: 800px; /* Maksimum genişlik */
+        border: 15px solid #34495e; /* Video çerçeve rengi */
+        border-radius: 100px; /* Video çerçeve köşe yuvarlama */
+      }
+
+      #qr-result {
+        margin-top: 20px;
+        font-size: 5.5em;
+        font-weight: bold;
+        color: #ecf0f1; /* QR kod içeriği rengi */
+        font-size: 75px;
+      }
+      #password {
+        margin-top: 20px;
+        font-size: 5.5em;
+        font-weight: bold;
+        color: #ecf0f1; /* QR kod içeriği rengi */
+        font-size: 75px;
+      }
+      #qr-result2 {
+        margin-top: 20px;
+        font-size: 5.5em;
+        font-weight: bold;
+        color: #bdc3c7; /* QR kod içeriği rengi */
+        font-size: 85px;
+      }
+      #qr-result3 {
+        margin-top: 20px;
+        font-size: 5.5em;
+        font-weight: bold;
+        color: #7f8c8d; /* QR kod içeriği rengi */
+        font-size: 85px;
+      }
+      #pc2,
+      #pc3 {
+        display: none;
+      }
+
+      #qr-video-container {
+        margin-top: 20px; /* Video konteyneri ile üst kısım arasındaki boşluk */
+      }
+
+
+      #progress-bar {
+        width: 100%;
+        height: 30px;
+        background-color: #f0f0f0;
+        position: relative;
+        overflow: hidden; /* Barın dışarı taşmasını engellemek için ekledik */
+      }
+
+      #progress {
+        height: 100%;
+        background-color: #4caf50;
+        transition: width 1s linear;
+        position: absolute;
+        left: 0; /* Barın sol kenardan başlamasını sağlar */
+        top: 0; /* Barın üst kenardan başlamasını sağlar */
+      }
+
+
+
+      #password {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+
+  <div id="modal-container">
+    <!-- Modal İçeriği -->
+    <div id="modal-content">
+      <span id="modal-close" onclick="closeModal()">&#aaaaa;</span>
+      <!-- Modal içeriği buraya eklenecek -->
+      <!-- <h2>Modal Başlığı</h2>
+      <p>Modal içeriği buraya eklenecek.</p> -->
+      <div id="loader">
+        <div id="d1"></div>
+        <div id="d2"></div>
+        <div id="d3"></div>
+        <div id="d4"></div>
+        <div id="d5"></div>
+      </div>
+    </div>
+  </div>
+
+  <body>
+    <div id="title">
+      <img src="pc22.png" alt="PC" style="margin-middle: 10px" />
+      <h1>QR Kod Giriş Sistemi CaYaSafe</h1>
+    </div>
+
+    <div id="qr-video-container">
+      <video id="qr-video"></video>
+    </div>
+    <div id="pc2-container">
+      <img id="pc2" src="pcsusces2.png" alt="PC2" style="margin-middle: 10px" />
+    </div>
+    <div id="pc3-container">
+      <img id="pc3" src="pcerror2.png" alt="PC3" style="margin-middle: 10px" />
+    </div>
+    <div id="qr-result">Henüz bir QR kod okunmadı.</div>
+    
+    
+
+    <div id="qr-result2"></div>
+    <div id="qr-result3"></div>
+    <br />
+    <br />
+    <div id="Opensystem">
+      <button id="TwoOpenSystem">Eğer farklı bir şekilde otomatik açmak istiyorsanız buraya tıklayın.(Karşı bilgisayar ile aynı ağda olmanız gerekir.)</button>
+    </div>
+    <br />
+    <br />
+    <br />
+  </div>
+    <button id="setAllDevicesTrue">Tüm Cihazları Aktif Yap</button>
+    <button id="openRemoteDevice">Uzaktan Herhangi Bir Cihazı Aç</button>
+
+    <button id="SaveRemoteDevice">Cihaz Kaydet</button>
+
+    <!-- Eklenen kısım başlangıcı -->
+    <div id="deviceForm" style="display: none">
+      <input type="text" id="deviceName" placeholder="Cihaz Adı (Size Bağlı)" />
+      <input type="text" id="deviceIP" placeholder="Uzaktan Cihazı Açma Kodu" />
+      <button id="saveDevice">Kaydet</button>
+    </div>
+    <br>
+    <br>
+
+    <h1>2 Aşamalı Kod:</h1>
+    <h2 id="password"></h2>
+    <div id="progress-bar">
+      <div id="progress">  </div>
+    </div>
+    <h3 id="nextUpdate"></h3>
+    
+
+    <div id="savedDevices">
+      <h2>Kaydedilen Cihazlar</h2>
+      <ul id="deviceList"></ul>
+      <br />
+      <br />
+      <br />
+    </div>
+    <br />
+    <br />
+    <br />
+    <div id="ip"></div>
+    <!-- Eklenen kısım sonu -->
+
+
+    <script>
+
+
+
+        async function fetchPassword() {
+            const response = await fetch('/code');
+            const data = await response.json();
+            const passwordElement = document.getElementById('password');
+            const nextUpdateElement = document.getElementById('nextUpdate');
+            const progressBar = document.getElementById('progress');
+            
+            passwordElement.textContent = `${data.password}`;
+            
+            const nextUpdate = new Date(data.nextUpdateTime);
+            nextUpdateElement.textContent = `Bir sonraki güncelleme: ${nextUpdate.toLocaleString()}`;
+
+            const now = Date.now();
+            const timeUntilNextUpdate = nextUpdate - now;
+            const progressBarWidth = 75 - (timeUntilNextUpdate / data.updateInterval) * 100; // Barın dolma yüzdesini hesapla
+
+            progressBar.style.width = `${progressBarWidth}%`;
+        }
+
+        fetchPassword();
+        setInterval(fetchPassword, 1000); // Her saniyede bir güncelleme yap
+
+
+
+
+
+
+      fetch("https://api.ipify.org?format=json")
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("IP Adresiniz: " + data.ip);
+          Opensystem.style.display = "none"; // Butonu gizle
+          //alert("IP Adresiniz: " + data.ip);
+        })
+        .catch((error) => console.error("IP adresi alınamadı:", error));
+        Opensystem.style.display = "none"; // Butonu gizle
+
+      // Modal'ı açan fonksiyon
+      window.onload = function () {
+        // Sayfa ve bağlı kaynaklar tamamen yüklendiğinde çalışacak kodlar buraya yazılır
+        // Loader'ı gizle
+        document.getElementById("loader").style.display = "none";
+
+        // Ek işlemleri buraya ekleyebilirsiniz
+        // Örneğin, modal'ı gizleyebilir veya ana içeriği gösterebilirsiniz
+
+        // Modal'ı açan fonksiyon
+        document.getElementById("modal-container").style.display = "none";
+        Instascan.Camera.getCameras()
+          .then(function (cameras) {
+            if (cameras.length > 0) {
+              scanner.start(cameras[1]);
+            } else {
+              console.error("No cameras found.");
+              alert("No cameras found.");
+            }
+          })
+          .catch(function (e) {
+            console.error(e);
+            alert("Error accessing camera.");
+          });
+      };
+
+      function getCookies(name) {
+        var cookies = document.cookie.split("; ");
+        for (var i = 0; i < cookies.length; i++) {
+          var cookie = cookies[i].split("=");
+          if (cookie[0] === name) {
+            return JSON.parse(decodeURIComponent(cookie[1]));
+          }
+        }
+        return null;
+      }
+
+      document
+        .getElementById("setAllDevicesTrue")
+        .addEventListener("click", function () {
+          if (
+            confirm("Tüm cihazları aktif yapmak istediğinizden emin misiniz?")
+          )
+            openAllSavedDevices();
+        });
+
+      function openAllSavedDevices() {
+        const savedDevices = getCookies("savedDevices") || [];
+        if (savedDevices.length === 0) {
+          alert("Açılacak cihaz bulunamadı.");
+          return;
+        }
+
+        let successCount = 0;
+        let errorCount = 0;
+
+        savedDevices.forEach(function (device) {
+
+
+          if (device.ip.startsWith("192.")) {
+            
+            //ipv4Address = device.ip;
+            //openRemoteDeviceIP(ipv4Address);
+
+            alert("UYARI! Yerel ağ üzerine kayıtlı cihazlar bulundu bunlar açılmıyıcaktır.");
+
+
+
+            $.ajax({
+            type: "POST",
+            url: "/openRemoteDevice",
+            data: JSON.stringify({ ipAddress: device.ip }),
+            contentType: "application/json",
+            success: function (data) {
+              console.log(data);
+              successCount++;
+              checkCompletion();
+            },
+            error: function (error) {
+              console.error("Error opening remote device:", error);
+              errorCount++;
+              checkCompletion();
+            },
+            })
+
+
+            } else {
+
+            $.ajax({
+            type: "POST",
+            url: "/openRemoteDevice",
+            data: JSON.stringify({ ipAddress: device.ip }),
+            contentType: "application/json",
+            success: function (data) {
+              console.log(data);
+              successCount++;
+              checkCompletion();
+            },
+            error: function (error) {
+              console.error("Error opening remote device:", error);
+              errorCount++;
+              checkCompletion();
+            },
+
+          })
+          
+          };
+
+
+          
+        });
+
+        function checkCompletion() {
+          const totalCount = successCount + errorCount;
+          if (totalCount === savedDevices.length) {
+            if (successCount > 0) {
+              alert(
+                `Başarıyla ${successCount} cihaz açıldı. (${errorCount} cihaz açma işlemi başarısız oldu.)`,
+                location.reload(),
+              );
+            } else {
+              alert(`Tüm cihaz açma işlemleri başarısız oldu.`);
+            }
+          }
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Sayfa yüklendiğinde çerezden kaydedilen cihazları al ve listele
+        var savedDevices = getCookies("savedDevices") || [];
+        savedDevices.forEach(function (device) {
+          saveDevice(device.name, device.ip);
+        });
+
+        document
+          .getElementById("SaveRemoteDevice")
+          .addEventListener("click", function () {
+            document.getElementById("deviceForm").style.display = "block";
+          });
+
+        document
+          .getElementById("saveDevice")
+          .addEventListener("click", function () {
+            var deviceName = document.getElementById("deviceName").value;
+            var deviceIP = document.getElementById("deviceIP").value;
+
+            if (deviceName && deviceIP) {
+              saveDevice(deviceName, deviceIP);
+
+              // Çerezlere kaydet
+              var savedDevices = getCookies("savedDevices") || [];
+              savedDevices.push({ name: deviceName, ip: deviceIP });
+              setCookies("savedDevices", savedDevices);
+
+              document.getElementById("deviceForm").style.display = "none";
+              document.getElementById("deviceName").value = "";
+              document.getElementById("deviceIP").value = "";
+            } else {
+              alert(
+                "Lütfen cihaz adı (Cihaz Adı Size Bağlı) ve Uzaktan Bu Cihazı Açma Kodunu girin.",
+              );
+            }
+          });
+
+        function saveDevice(name, ip) {
+          // Yeni cihazı listeye ekle
+          var deviceList = document.getElementById("deviceList");
+          var listItem = document.createElement("li");
+
+          // "Sil" butonu ekleyerek listeye cihazı ekle
+          listItem.innerHTML =
+            '<a href="#" class="deviceLink">' +
+            name +
+            '</a> <button class="deleteButton" data-ip="' +
+            ip +
+            '">Bu Veriyi Sil</button>';
+          deviceList.appendChild(listItem);
+
+          // Kaydedilen cihaza tıklandığında açma işlemi
+          listItem
+            .querySelector(".deviceLink")
+            .addEventListener("click", function (event) {
+              event.preventDefault();
+              openSavedDevice(ip);
+            });
+
+          // "Sil" butonuna tıklandığında silme işlemi
+          listItem
+            .querySelector(".deleteButton")
+            .addEventListener("click", function (event) {
+              event.stopPropagation(); // Bu satır, butona tıklandığında parent'a (li) tıklamanın engellenmesi için eklenmiştir.
+              deleteDevice(ip);
+              deviceList.removeChild(listItem); // Listeden cihazı kaldır
+            });
+        }
+
+        // Silme işlemi için fonksiyon
+        function deleteDevice(ip) {
+          var savedDevices = getCookies("savedDevices") || [];
+          // Kaydedilen cihazları filtrele ve güncelle
+          savedDevices = savedDevices.filter(function (device) {
+            return device.ip !== ip;
+          });
+          setCookies("savedDevices", savedDevices);
+        }
+
+
+
+        function openSavedDevice(ip) {
+          if (ip.startsWith("192.")) {
+            
+            ipv4Address = ip;
+            openRemoteDeviceIP(ipv4Address);
+
+          } else {
+
+            $.ajax({
+            type: "POST",
+            url: "/openRemoteDevice",
+            data: JSON.stringify({ ipAddress: ip }),
+            contentType: "application/json",
+            success: function (data) {
+              console.log(data);
+              alert("Uzaktan cihaz başarıyla açıldı!");
+            },
+            error: function (error) {
+              console.error("Error opening remote device:", error);
+              alert("Uzaktan cihaz açma işlemi başarısız!");
+            },
+
+          })
+          
+          };
+        }
+
+        function setCookies(name, value) {
+          document.cookie =
+            name + "=" + encodeURIComponent(JSON.stringify(value));
+        }
+      });
+
+      
+      
+      
+
+      let scanner = new Instascan.Scanner({
+        video: document.getElementById("qr-video"),
+        mirror: false,
+        facingMode: "environment",
+      });
+
+      scanner.addListener("scan", function (content) {
+        console.log(content);
+        document.getElementById("qr-result").innerText = "Kod İşleniyor...";
+
+        var qrVideoContainer = document.getElementById("qr-video-container");
+        var qrVideo = document.getElementById("qr-video");
+
+        scanner.stop();
+        qrVideoContainer.style.display = "none";
+        qrVideo.style.display = "none";
+
+        checkAndSaveToServer(content);
+      });
+
+      function checkAndSaveToServer(qrContent) {
+        $.ajax({
+          type: "POST",
+          url: "/saveToDatabase",
+          data: JSON.stringify({ qrContent: qrContent }),
+          contentType: "application/json",
+          success: function (data) {
+            console.log(data);
+            pc2.style.display = "flex";
+            document.getElementById("qr-result2").innerText =
+              "Otomatik Giriş Gerçekleştiriliyor...";
+            let transformedCode = transformCode(qrContent);
+            document.getElementById("qr-result").innerText = transformedCode;
+
+            const ipv4AddressMatch = qrContent.match(/Ipv4Address:([^ ]+)/);
+            const ipv4Address = ipv4AddressMatch ? ipv4AddressMatch[1] : null;
+            document.getElementById("ip").innerText = ipv4Address;
+            Opensystem.style.display = "block"; // Butonu göster
+          },
+          error: function (error) {
+            pc3.style.display = "flex";
+            console.error("Error saving to server:", error);
+            let transformedCode = transformCode(qrContent);
+            //document.getElementById("qr-result").innerText = transformedCode;
+
+            const ipv4AddressMatch = qrContent.match(/Ipv4Address:([^ ]+)/);
+            const ipv4Address = ipv4AddressMatch ? ipv4AddressMatch[1] : null;
+
+            document.getElementById("qr-result").innerText = transformedCode;
+            document.getElementById("ip").innerText = ipv4Address;
+            document.getElementById("qr-result3").innerText =
+              "Bağlantı Hatası! Manuel Şifre Gerekli!";
+            alert("Bir hata oluştu. Lütfen tekrar deneyin.");
+            // Redirect to the specified URL
+            //window.location.href = `http://${ipv4Address}:4728/cysfsy/${transformedCode}`;
+            Opensystem.style.display = "block"; // Butonu göster
+          },
+        });
+      }
+
+      let ipv4Address;
+      let transformedCode;
+
+      // Düğmeye tıklandığında işlemi gerçekleştirmek için event listener ekleyin
+      document.getElementById("TwoOpenSystem").addEventListener("click", function() {
+
+        // transformedCode ve ipv4Address değerlerini al
+        transformedCode = document.getElementById("qr-result").innerText;
+
+        ipv4Address = document.getElementById("ip").innerText;
+
+
+        window.location.href = `http://${ipv4Address}:4728/cysfsy/${transformedCode}`;
+      });
+
+
+      function transformCode(code) {
+        let last12Chars = code.slice(-23);
+        let first6Chars = last12Chars.slice(0, 6);
+
+        let transformedCode = "";
+        for (let i = 0; i < first6Chars.length; i++) {
+          switch (first6Chars[i]) {
+            case "a":
+              transformedCode += "1";
+              break;
+            case "y":
+              transformedCode += "2";
+              break;
+            case "d":
+              transformedCode += "3";
+              break;
+            case "s":
+              transformedCode += "4";
+              break;
+            case "k":
+              transformedCode += "5";
+              break;
+            case "p":
+              transformedCode += "6";
+              break;
+            case "z":
+              transformedCode += "7";
+              break;
+            case "x":
+              transformedCode += "8";
+              break;
+            case "w":
+              transformedCode += "9";
+              break;
+            case "e":
+              transformedCode += "0";
+              break;
+            default:
+              transformedCode += first6Chars[i];
+              break;
+          }
+        }
+        return transformedCode;
+      }
+
+
+
+
+
+
+
+      document
+        .getElementById("openRemoteDevice")
+        .addEventListener("click", function () {
+          var ipAddress = prompt(
+            "Uzaktan açmak istediğiniz cihazın Uzaktan Cihazı Açma Kodunu girin:",
+          );
+
+          if (ipAddress) {
+            if (ipAddress.startsWith("192.")) {
+              openRemoteDeviceIP(ipAddress);
+            } else {
+              openRemoteDevice(ipAddress);
+            }
+          }
+        });
+
+      document
+        .getElementById("openRemoteDeviceIP")
+        .addEventListener("click", function () {
+          var ipv4Address = prompt(
+            "Uzaktan açmak istediğiniz cihazın Uzaktan Cihazı Açma Kodunu girin:",
+          );
+
+          if (ipv4Address) {
+            if (ipv4Address.startsWith("192.")) {
+              openRemoteDeviceIP(ipv4Address);
+            } else {
+              openRemoteDevice(ipv4Address);
+            }
+          }
+        });
+
+
+
+
+
+
+      function openRemoteDevice(ipAddress) {
+        $.ajax({
+          type: "POST",
+          url: "/openRemoteDevice",
+          data: JSON.stringify({ ipAddress: ipAddress }),
+          contentType: "application/json",
+          success: function (data) {
+            console.log(data);
+            alert("Uzaktan cihaz başarıyla açıldı!");
+          },
+          error: function (error) {
+            console.error("Error opening remote device:", error);
+            alert("Uzaktan cihaz açma işlemi başarısız!");
+          },
+        });
+      }
+
+      function openRemoteDeviceIP(ipv4Address) {
+        window.location.href = `http://${ipv4Address}:4728/cysfsy/OtomatikGirişSistemi`;
+      }
+
+    </script>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+  </body>
+</html>

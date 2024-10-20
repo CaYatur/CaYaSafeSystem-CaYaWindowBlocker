@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dosya Yöneticisi CaYaSafeSystem</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 0;
+      text-align: center;
+    }
+    h1 {
+      margin: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+    input[type="file"] {
+      display: block;
+      margin-bottom: 10px;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    li:hover {
+      background-color: #f9f9f9;
+    }
+    button {
+      padding: 5px 10px;
+      border: none;
+      cursor: pointer;
+      background-color: #007bff;
+      color: #fff;
+      border-radius: 3px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    button.secondary {
+      background-color: #6c757d;
+    }
+    button.secondary:hover {
+      background-color: #5a6268;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Dosya Yöneticisi CaYaSafeSystem</h1>
+  </header>
+  <div class="container">
+    <input type="file" id="dosyaInput">
+    <button onclick="dosyaYukle()">Dosya Yükle</button>
+    <ul id="dosyaListesi"></ul>
+    <button id="geriGit" style="display: none;" class="secondary">Geri Git</button>
+    <button onclick="komutCalistir()">Komut Çalıştır</button>
+    <button id="sesKapatButton">Sesi Sustur/Aç</button>
+    <button id="sesAcButton">Sesi Tamamen Aç</button>
+  </div>
+  
+
+  <script>
+    const dosyaListesi = document.getElementById('dosyaListesi');
+    const geriGitButton = document.getElementById('geriGit');
+
+    async function dosyalariListele(yol) {
+      const response = await fetch(`/dosyalar/${yol || ''}`);
+      const data = await response.json();
+      dosyaListesi.innerHTML = '';
+      data.dosyalar.forEach(dosya => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <span>${dosya.ad}</span>
+          <div>
+            ${dosya.tip === 'klasor' ? '<button onclick="dosyaTiklandi(\'' + (yol ? yol + '/' : '') + dosya.ad + '\')">Aç</button>' : '<button onclick="indir(\'' + (yol ? yol + '/' : '') + dosya.ad + '\')">İndir</button><button onclick="calistir(\'' + (yol ? yol + '/' : '') + dosya.ad + '\')">Çalıştır</button><button onclick="dosyaSil(\'' + (yol ? yol + '/' : '') + dosya.ad + '\')">Sil</button>'}
+          </div>
+        `;
+        dosyaListesi.appendChild(li);
+      });
+      geriGitButton.style.display = yol ? 'inline' : 'none';
+    }
+
+    function dosyaTiklandi(yol) {
+      dosyalariListele(yol);
+    }
+
+    async function indir(dosyaYolu) {
+      window.location.href = `/indir/${encodeURIComponent(dosyaYolu)}`;
+    }
+
+    async function calistir(dosyaYolu) {
+      const response = await fetch(`/calistir/${encodeURIComponent(dosyaYolu)}`);
+      const data = await response.json();
+      alert('Çalıştırma Çıktısı:\n' + data.stdout + '\nHata Çıktısı:\n' + data.stderr);
+    }
+
+    async function dosyaYukle() {
+      const dosya = document.getElementById('dosyaInput').files[0];
+      const klasor = prompt('Yüklenecek klasörü girin (isteğe bağlı):');
+      if (dosya) {
+        const formData = new FormData();
+        formData.append('dosya', dosya);
+        formData.append('klasor', klasor || '');
+        const response = await fetch('/yukle', {
+          method: 'POST',
+          body: formData
+        });
+        const data = await response.json();
+        if (data.success) {
+          alert('Dosya başarıyla yüklendi');
+          dosyalariListele(klasor || '');
+        } else {
+          alert('Dosya yüklenirken bir hata oluştu');
+        }
+      } else {
+        alert('Lütfen bir dosya seçin');
+      }
+    }
+
+    async function komutCalistir() {
+      const komut = prompt('Çalıştırmak istediğiniz komutu girin:');
+      if (komut) {
+        const response = await fetch('/komut-calistir', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ komut })
+        });
+        const data = await response.json();
+        alert('Çalıştırma Çıktısı:\n' + data.stdout + '\nHata Çıktısı:\n' + data.stderr);
+      }
+    }
+
+    async function dosyaSil(dosyaYolu) {
+      if (confirm("Bu dosyayı silmek istediğinize emin misiniz?")) {
+        const response = await fetch(`/sil/${encodeURIComponent(dosyaYolu)}`, {
+          method: 'DELETE'
+        });
+        const data = await response.json();
+        if (data.success) {
+          alert('Dosya başarıyla silindi');
+          dosyalariListele('');
+        } else {
+          alert('Dosya silinirken bir hata oluştu');
+        }
+      }
+    }
+
+    geriGitButton.addEventListener('click', () => {
+      const yol = dosyaListesi.lastChild.querySelector('span').textContent;
+      const parentYol = yol.substring(0, yol.lastIndexOf('/'));
+      dosyalariListele(parentYol);
+    });
+
+    dosyalariListele('');
+
+    const sesKapatButton = document.getElementById('sesKapatButton');
+    const sesAcButton = document.getElementById('sesAcButton');
+
+    sesKapatButton.addEventListener('click', () => {
+      fetch('/ses-kapat', {
+        method: 'POST',
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Bir hata oluştu.');
+        }
+        console.log('Ses kapatıldı.');
+      })
+      .catch(error => {
+        console.error('Hata:', error);
+      });
+    });
+
+    sesAcButton.addEventListener('click', () => {
+      fetch('/ses-ac', {
+        method: 'POST',
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Bir hata oluştu.');
+        }
+        console.log('Ses açıldı.');
+      })
+      .catch(error => {
+        console.error('Hata:', error);
+      });
+    });
+
+  </script>
+</body>
+</html>

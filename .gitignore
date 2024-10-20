@@ -1,0 +1,93 @@
+# =============================================================
+# CaYaSafeSystem - .gitignore
+# =============================================================
+
+# ─── Node.js ──────────────────────────────────────────────────
+node_modules/
+node_modules2/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# ─── Ortam / Gizli değişkenler ────────────────────────────────
+.env
+.env.local
+.env.production
+.env.*
+!.env.example
+
+# ─── C# / .NET Build çıktıları ────────────────────────────────
+bin/
+obj/
+*.user
+*.suo
+.vs/
+*.nupkg
+*.snupkg
+*.DotSettings
+UpgradeLog*.htm
+
+# ─── IDE ──────────────────────────────────────────────────────
+.idea/
+
+# ─── Large/cache files ────────────────────────────────────────
+*.cab
+CaYaLab-cache/
+
+# ─── Python ───────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.spec
+build/
+dist/
+*.egg-info/
+venv/
+env/
+.venv/
+
+# ─── Derlenmiş çalıştırılabilir dosyalar ─────────────────────
+# (Kaynak koddan yeniden derlenebilirler, repoya girmemeli)
+*.exe
+*.dll
+*.pdb
+*.msi
+app-macos
+app-linux
+ser.exe
+server.exe
+CaYaSafeServer.exe
+myapp22.exe
+appaold.exe
+app3.exe
+your-app.exe
+
+# ─── Yüklenen / kullanıcıya ait veriler ──────────────────────
+uploads/
+DAATA/uploads/
+Hizmetlerin Sunucusu/CaYaSafeServices/Server/uploads/
+Hizmetlerin Sunucusu/CaYaSafeServices/Server/dosyalar/
+dataB.txt
+dataW.txt
+
+# ─── Log dosyaları ───────────────────────────────────────────
+*.log
+logs/
+
+# ─── Geçici / önbellek dosyaları ─────────────────────────────
+*.tmp
+*.cache
+.DS_Store
+Thumbs.db
+
+# ─── PyInstaller çıktıları ───────────────────────────────────
+Uygulama/SiteBlocker/output/
+Uygulama/SiteBlocker/build/
+
+# ─── Server içindeki binary dosyalar ────────────────────────
+Hizmetlerin Sunucusu/CaYaSafeServices/Server/sharp/
+Hizmetlerin Sunucusu/CaYaSafeServices/Server/vendor/
+Hizmetlerin Sunucusu/CaYaSafeServices/Server/dist/
+Hizmetlerin Sunucusu/CaYaSafeServices/Server/build/

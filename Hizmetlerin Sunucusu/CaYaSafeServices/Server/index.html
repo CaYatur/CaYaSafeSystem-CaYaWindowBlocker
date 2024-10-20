@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File Explorer</title>
+</head>
+<body>
+  <h1>File Explorer</h1>
+  <ul id="dosyaListesi"></ul>
+
+  <script>
+    async function dosyaVeKlasorleriListele(klasorAdi) {
+      const response = await fetch(`/klasor/${klasorAdi}`);
+      const data = await response.json();
+      const dosyaListesi = document.getElementById('dosyaListesi');
+      dosyaListesi.innerHTML = '';
+
+      // Bir önceki dizine dönme butonu
+      const geriButonu = document.createElement('button');
+      geriButonu.textContent = 'Geri Git';
+      geriButonu.onclick = () => dosyaVeKlasorleriListele(data.klasorAdi);
+      dosyaListesi.appendChild(geriButonu);
+
+      data.dosyalar.forEach(dosya => {
+        const li = document.createElement('li');
+        li.textContent = dosya;
+
+        // Dosya veya klasöre tıklandığında işlevi belirle
+        li.onclick = async () => {
+          const response = await fetch(`/dosya/${dosya}`);
+          const dosyaTuru = await response.text(); // Text olarak alıyoruz
+          if (dosyaTuru === 'klasor') {
+            dosyaVeKlasorleriListele(dosya);
+          } else {
+            // Dosya indirme işlemi
+            window.location.href = `/dosya/${dosya}`;
+          }
+        };
+
+        dosyaListesi.appendChild(li);
+      });
+    }
+
+    // Sayfa yüklendiğinde başlangıçta sunucudaki dosyaları listele
+    dosyaVeKlasorleriListele('');
+  </script>
+</body>
+</html>

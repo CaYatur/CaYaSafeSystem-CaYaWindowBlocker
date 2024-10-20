@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT Type="Advanced Installer" CreateVersion="21.1" version="21.1" PreviousModules="professional" Modules="enterprise" RootPath="." Language="en" Id="{C8C3A57B-19F7-48F3-9BEF-054D4AAACB62}">
+  <COMPONENT cid="caphyon.advinst.msicomp.ProjectOptionsComponent">
+    <ROW Name="HiddenItems" Value="ActSyncAppComponent;CPLAppletComponent;AppXAppDetailsComponent;FixupComponent;AppXCapabilitiesComponent;AppXDependenciesComponent;AppXProductDetailsComponent;AppXVisualAssetsComponent;AppXAppDeclarationsComponent;AppXUriRulesComponent;MsiXDiffComponent;MsixManifestEditorComponent;ActSyncAppComponent;CPLAppletComponent;AutorunComponent;GameUxComponent;SilverlightSlnComponent;SharePointSlnComponent"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
+    <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
+    <ROW Property="AI_FINDEXE_TITLE" Value="Select the installation package for [|ProductName]" ValueLocId="AI.Property.FindExeTitle"/>
+    <ROW Property="AI_PREDEF_LCONDS_PROPS" Value="AI_DETECTED_ADMIN_USER"/>
+    <ROW Property="AI_PRODUCTNAME_ARP" Value="DriverUpdateCY"/>
+    <ROW Property="AI_UNINSTALLER" Value="msiexec.exe"/>
+    <ROW Property="ALLUSERS" Value="1"/>
+    <ROW Property="ARPCOMMENTS" Value="This installer database contains the logic and data required to install [|ProductName]." ValueLocId="*"/>
+    <ROW Property="ARPNOREPAIR" Value="1" MultiBuildValue="DefaultBuild:1"/>
+    <ROW Property="ARPPRODUCTICON" Value="WindowsUpdateImportant_1.exe" Type="8"/>
+    <ROW Property="ARPSYSTEMCOMPONENT" Value="1"/>
+    <ROW Property="AiEmbeddedUI" Value="1"/>
+    <ROW Property="AiWinUI" Value="1"/>
+    <ROW Property="AppLogoIcon" Value="applogo.png" MultiBuildValue="DefaultBuild:app_icon.ico" Type="1" MsiKey="AppLogoIcon"/>
+    <ROW Property="AppLogoIconDark" Value="applogodark.png" MultiBuildValue="DefaultBuild:app_icon.ico" Type="1" MsiKey="AppLogoIconDark"/>
+    <ROW Property="Manufacturer" Value="CaYa"/>
+    <ROW Property="ProductCode" Value="1033:{1D2A9F03-EF03-413E-B132-5B5CC3DBF784} " Type="16"/>
+    <ROW Property="ProductLanguage" Value="1033"/>
+    <ROW Property="ProductName" Value="CaYaWindowBlocker"/>
+    <ROW Property="ProductVersion" Value="1.0.7" Options="32"/>
+    <ROW Property="REBOOT" MultiBuildValue="DefaultBuild:Force"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
+    <ROW Property="TaskBarIcon" Value="app_icon.ico" Type="1" MsiKey="TaskBarIcon"/>
+    <ROW Property="TaskBarIconDark" Value="app_icon.ico" Type="1" MsiKey="TaskBarIconDark"/>
+    <ROW Property="UpgradeCode" Value="{39923838-605C-42FB-A17C-94D986707953}"/>
+    <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsType9XDisplay" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40Display" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50Display" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5X" MultiBuildValue="DefaultBuild:Windows XP/2003" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5XDisplay" MultiBuildValue="DefaultBuild:Windows XP/2003" ValueLocId="-"/>
+    <ATTRIBUTE name="DeletedRows" value="AiSkipExitDlg"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
+    <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
+    <ROW Directory="CaYaLabOffline_Dir" Directory_Parent="CaYaLab_Dir" DefaultDir="CAYALA~1|CaYaLabOffline"/>
+    <ROW Directory="CaYaLab_Dir" Directory_Parent="ProgramFiles64Folder" DefaultDir="CaYaLab"/>
+    <ROW Directory="CaYaSafe32_Dir" Directory_Parent="CaYaSafe_Dir" DefaultDir="CAYASA~1|CaYaSafe32"/>
+    <ROW Directory="CaYaSafe_Dir" Directory_Parent="ProgramFiles64Folder" DefaultDir="CaYaSafe"/>
+    <ROW Directory="ProgramFiles64Folder" Directory_Parent="TARGETDIR" DefaultDir="PROGRA~1|ProgramFiles64Folder" IsPseudoRoot="1"/>
+    <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
+    <ROW Directory="certifi_Dir" Directory_Parent="CaYaSafe32_Dir" DefaultDir="certifi"/>
+    <ROW Directory="charset_normalizer_Dir" Directory_Parent="CaYaSafe32_Dir" DefaultDir="CHARSE~1|charset_normalizer"/>
+    <ROW Directory="cyRUN_Dir" Directory_Parent="CaYaSafe_Dir" DefaultDir="cyRUN"/>
+    <ROW Directory="psutil_Dir" Directory_Parent="cyRUN_Dir" DefaultDir="psutil"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="AI_CustomARPName" ComponentId="{F4016629-0B22-40B1-BCCA-31FF686FBA0C}" Directory_="APPDIR" Attributes="4" KeyPath="DisplayName" Options="1"/>
+    <ROW Component="AI_ExePath" ComponentId="{1C6D342E-1470-4B79-98B3-6283271C6C84}" Directory_="APPDIR" Attributes="4" KeyPath="AI_ExePath"/>
+    <ROW Component="AI_INSTALLPERUSER" ComponentId="{F35035CE-EA47-40FF-B315-5FD402816A9D}" Directory_="APPDIR" Attributes="4" KeyPath="AI_INSTALLPERUSER" Options="1"/>
+    <ROW Component="APPDIR" ComponentId="{545B5CDC-F4C7-4FD6-96D5-565A8177C3C9}" Directory_="APPDIR" Attributes="0"/>
+    <ROW Component="CaYa.exe" ComponentId="{4530B601-2362-4CBD-9D45-0B116564AC61}" Directory_="CaYaLab_Dir" Attributes="256" KeyPath="CaYa.exe"/>
+    <ROW Component="CaYa.exe_1" ComponentId="{3F673767-2AD3-41A6-A5CA-4B9F2767B714}" Directory_="CaYaLabOffline_Dir" Attributes="256" KeyPath="CaYa.exe_1"/>
+    <ROW Component="CaYaLabOffline.deps.json" ComponentId="{2069BD2E-3B9E-4BB4-97AD-68ADAAD34AF3}" Directory_="CaYaLabOffline_Dir" Attributes="0" KeyPath="CaYaLabOffline.deps.json" Type="0"/>
+    <ROW Component="CaYaLabOffline.dll" ComponentId="{4E13C14C-ECAE-4299-B5E3-F87B9697388C}" Directory_="CaYaLabOffline_Dir" Attributes="0" KeyPath="CaYaLabOffline.dll"/>
+    <ROW Component="CaYaSafe" ComponentId="{F283A329-E144-4B74-954C-5E63CE6E23EF}" Directory_="CaYaSafe_Dir" Attributes="0"/>
+    <ROW Component="CaYaSafe32.exe" ComponentId="{E235D291-3510-4BD1-BFA7-BFEF15123184}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="CaYaSafe32.exe"/>
+    <ROW Component="CaYaUnkown.exe" ComponentId="{148A4BCC-7A56-4BBD-A5CA-4FD80DD50A42}" Directory_="CaYaLab_Dir" Attributes="256" KeyPath="CaYaUnkown.exe"/>
+    <ROW Component="Gma.QrCodeNet.Encoding.dll" ComponentId="{08613959-546A-49D0-BDCB-738CF54F5621}" Directory_="CaYaLab_Dir" Attributes="0" KeyPath="Gma.QrCodeNet.Encoding.dll"/>
+    <ROW Component="QRCoder.dll" ComponentId="{13BB5592-ED00-4DC5-AF8D-28C5ED90B6C1}" Directory_="CaYaLab_Dir" Attributes="0" KeyPath="QRCoder.dll"/>
+    <ROW Component="QrCodeGenerator.dll" ComponentId="{8D0A4754-A9AA-4BD9-B515-6B8D981B395A}" Directory_="CaYaLab_Dir" Attributes="0" KeyPath="QrCodeGenerator.dll"/>
+    <ROW Component="SiteEngellemeTitile2.dll" ComponentId="{8B0DB58D-72EB-4A47-8D40-360045C093BC}" Directory_="CaYaLab_Dir" Attributes="0" KeyPath="SiteEngellemeTitile2.dll"/>
+    <ROW Component="SiteEngelleyiciArayz.deps.json" ComponentId="{024E7B17-81CF-4EC8-94B2-31A3F79E843E}" Directory_="CaYaLab_Dir" Attributes="0" KeyPath="SiteEngelleyiciArayz.deps.json" Type="0"/>
+    <ROW Component="SiteEngelleyiciArayz.dll" ComponentId="{19005007-D281-42E1-B177-792B10B63497}" Directory_="CaYaLab_Dir" Attributes="0" KeyPath="SiteEngelleyiciArayz.dll"/>
+    <ROW Component="TwoFactorAuth.Net.QRCoder.dll" ComponentId="{6C6A6972-648D-415F-AC44-6EF4B35C8521}" Directory_="CaYaLab_Dir" Attributes="0" KeyPath="TwoFactorAuth.Net.QRCoder.dll"/>
+    <ROW Component="TwoFactorAuth.Net.dll" ComponentId="{2E1F3466-3395-4595-B895-16340CBF8857}" Directory_="CaYaLab_Dir" Attributes="0" KeyPath="TwoFactorAuth.Net.dll"/>
+    <ROW Component="VCRUNTIME140.dll" ComponentId="{D827D28F-D7DA-4FF2-991A-51A675FD9472}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="VCRUNTIME140.dll"/>
+    <ROW Component="VCRUNTIME140.dll_1" ComponentId="{486694C5-6F59-46A7-A142-8C3D46B3A379}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="VCRUNTIME140.dll_1"/>
+    <ROW Component="_psutil_windows.pyd" ComponentId="{024049F8-C35A-42CA-AC48-124FA4184C19}" Directory_="psutil_Dir" Attributes="256" KeyPath="_psutil_windows.pyd" Type="0"/>
+    <ROW Component="apimswincoreconsolel110.dll" ComponentId="{8C396493-CEE9-4784-A4F3-B7BFAAD23D0C}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincoreconsolel110.dll"/>
+    <ROW Component="apimswincoreconsolel110.dll_1" ComponentId="{56DA5582-540B-4265-A904-FD1E534AE4A3}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincoreconsolel110.dll_1"/>
+    <ROW Component="apimswincoredatetimel110.dll" ComponentId="{702E9832-F877-40DC-B3E4-9EA8E410FB8D}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincoredatetimel110.dll"/>
+    <ROW Component="apimswincoredatetimel110.dll_1" ComponentId="{FAA52FD5-85C0-458C-B820-F0906921771C}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincoredatetimel110.dll_1"/>
+    <ROW Component="apimswincoredebugl110.dll" ComponentId="{BE68DCBF-6206-4FD6-8C59-3309D97B8E28}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincoredebugl110.dll"/>
+    <ROW Component="apimswincoredebugl110.dll_1" ComponentId="{6D7A3843-4F89-4808-A71D-26D3D99D0EB0}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincoredebugl110.dll_1"/>
+    <ROW Component="apimswincoreerrorhandlingl110.dll" ComponentId="{18F3710B-B78B-4466-9D81-A46015B3520E}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincoreerrorhandlingl110.dll"/>
+    <ROW Component="apimswincoreerrorhandlingl110.dll_1" ComponentId="{579D5188-5221-4AC1-AE8E-C08FC1AF4680}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincoreerrorhandlingl110.dll_1"/>
+    <ROW Component="apimswincorefilel110.dll" ComponentId="{70253509-56E6-4527-BDDC-090C33CD8802}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincorefilel110.dll"/>
+    <ROW Component="apimswincorefilel110.dll_1" ComponentId="{C047036C-5334-4169-8A90-9D7178419F49}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincorefilel110.dll_1"/>
+    <ROW Component="apimswincorefilel120.dll" ComponentId="{8F82E587-65A2-4B3F-A131-13B5D945F81B}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincorefilel120.dll"/>
+    <ROW Component="apimswincorefilel120.dll_1" ComponentId="{9E2CCCBA-4A91-422F-A276-66C5A0476646}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincorefilel120.dll_1"/>
+    <ROW Component="apimswincorefilel210.dll" ComponentId="{B3711E86-F5D5-4084-A92F-41B39467B2C6}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincorefilel210.dll"/>
+    <ROW Component="apimswincorefilel210.dll_1" ComponentId="{F81FEB3F-19F4-4C61-B057-190D10BB5CCB}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincorefilel210.dll_1"/>
+    <ROW Component="apimswincorehandlel110.dll" ComponentId="{B7C26C5D-FC92-4664-84A4-087662723795}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincorehandlel110.dll"/>
+    <ROW Component="apimswincorehandlel110.dll_1" ComponentId="{D11348DD-3471-40A4-A089-A1979F02B6F8}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincorehandlel110.dll_1"/>
+    <ROW Component="apimswincoreheapl110.dll" ComponentId="{EB5742A1-C9A0-43F1-8AB3-9877321A6710}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincoreheapl110.dll"/>
+    <ROW Component="apimswincoreheapl110.dll_1" ComponentId="{C286962B-49D3-46FD-81EC-012DDBB6E53B}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincoreheapl110.dll_1"/>
+    <ROW Component="apimswincoreinterlockedl110.dll" ComponentId="{07ABCC77-E92E-47FC-A5F8-F6F87BBD9A8B}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincoreinterlockedl110.dll"/>
+    <ROW Component="apimswincoreinterlockedl110.dll_1" ComponentId="{FF0BF5FD-8440-4834-9B7A-26BD0FDB931C}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincoreinterlockedl110.dll_1"/>
+    <ROW Component="apimswincorelibraryloaderl110.dll" ComponentId="{47A12227-BB3E-4181-9681-71E57768A9C0}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincorelibraryloaderl110.dll"/>
+    <ROW Component="apimswincorelibraryloaderl110.dll_1" ComponentId="{94953768-E586-4FAF-8B4F-94ED35AFB171}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincorelibraryloaderl110.dll_1"/>
+    <ROW Component="apimswincorelocalizationl120.dll" ComponentId="{3C835FAF-6BB9-4AF2-8AC0-C7A95DB4937C}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincorelocalizationl120.dll"/>
+    <ROW Component="apimswincorelocalizationl120.dll_1" ComponentId="{0F58FE01-5248-44B8-A392-7780A500305C}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincorelocalizationl120.dll_1"/>
+    <ROW Component="apimswincorememoryl110.dll" ComponentId="{20AE1011-EEE1-4A5F-BB29-8C900CDEF836}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincorememoryl110.dll"/>
+    <ROW Component="apimswincorememoryl110.dll_1" ComponentId="{0BB6B4DC-8012-431A-92AD-A472C4210BEB}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincorememoryl110.dll_1"/>
+    <ROW Component="apimswincorenamedpipel110.dll" ComponentId="{3EF7A347-68D6-4918-8FCA-F17FEDD8B4F2}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincorenamedpipel110.dll"/>
+    <ROW Component="apimswincorenamedpipel110.dll_1" ComponentId="{6990AF2F-D976-4BCF-9AE9-2D11EDC3EE89}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincorenamedpipel110.dll_1"/>
+    <ROW Component="apimswincoreprocessenvironmentl110.dll" ComponentId="{F1E16973-68A1-4992-B746-FC63B9ABD3B6}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincoreprocessenvironmentl110.dll"/>
+    <ROW Component="apimswincoreprocessenvironmentl110.dll_1" ComponentId="{81B682C1-C8D5-4508-85B3-971A370D4964}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincoreprocessenvironmentl110.dll_1"/>
+    <ROW Component="apimswincoreprocessthreadsl110.dll" ComponentId="{09DBCA75-51C1-4BFE-BAE4-22A3CA3209B0}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincoreprocessthreadsl110.dll"/>
+    <ROW Component="apimswincoreprocessthreadsl110.dll_1" ComponentId="{C0173012-CC1E-48A1-8E47-2EAE6C4CC9A5}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincoreprocessthreadsl110.dll_1"/>
+    <ROW Component="apimswincoreprocessthreadsl111.dll" ComponentId="{E16865C0-CD5C-45E7-8A83-4F500E1F6803}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincoreprocessthreadsl111.dll"/>
+    <ROW Component="apimswincoreprocessthreadsl111.dll_1" ComponentId="{21DF20B1-6A2A-465C-8300-3A5710A83035}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincoreprocessthreadsl111.dll_1"/>
+    <ROW Component="apimswincoreprofilel110.dll" ComponentId="{2F6166B2-2EF9-4C87-BC4D-091D391A0D2E}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincoreprofilel110.dll"/>
+    <ROW Component="apimswincoreprofilel110.dll_1" ComponentId="{50FE2DD3-9A30-4508-8307-13E4CA6C630D}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincoreprofilel110.dll_1"/>
+    <ROW Component="apimswincorertlsupportl110.dll" ComponentId="{19507D41-5CFE-4D63-9321-EE99DC998271}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincorertlsupportl110.dll"/>
+    <ROW Component="apimswincorertlsupportl110.dll_1" ComponentId="{1A6FA788-D1A1-42A2-B021-6DD4CFCC7A0B}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincorertlsupportl110.dll_1"/>
+    <ROW Component="apimswincorestringl110.dll" ComponentId="{29DC618A-0E19-4DF2-B72A-9807A2B170A0}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincorestringl110.dll"/>
+    <ROW Component="apimswincorestringl110.dll_1" ComponentId="{69F3833B-63AF-4D43-AAC0-A988D787C305}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincorestringl110.dll_1"/>
+    <ROW Component="apimswincoresynchl110.dll" ComponentId="{A4359076-1E07-440C-A44B-58997602AA23}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincoresynchl110.dll"/>
+    <ROW Component="apimswincoresynchl110.dll_1" ComponentId="{D4FFA3A2-AA82-4575-A5C3-0EE75C4C7ABA}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincoresynchl110.dll_1"/>
+    <ROW Component="apimswincoresynchl120.dll" ComponentId="{59F08AAF-9FFB-4D87-8709-3821A93BE4B4}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincoresynchl120.dll"/>
+    <ROW Component="apimswincoresynchl120.dll_1" ComponentId="{86A69EFC-4BD8-43A0-BC79-E1175ADC737D}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincoresynchl120.dll_1"/>
+    <ROW Component="apimswincoresysinfol110.dll" ComponentId="{29B157DF-292F-4046-B5A0-D9DC3938DBEE}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincoresysinfol110.dll"/>
+    <ROW Component="apimswincoresysinfol110.dll_1" ComponentId="{B5790B5F-C70C-40CA-A3D8-B414DD0219E9}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincoresysinfol110.dll_1"/>
+    <ROW Component="apimswincoretimezonel110.dll" ComponentId="{B4BD3A08-BAB6-420E-9B97-F4B923829FC7}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincoretimezonel110.dll"/>
+    <ROW Component="apimswincoretimezonel110.dll_1" ComponentId="{FEC3ECC2-F9B6-467B-9791-776C5CECFC92}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincoretimezonel110.dll_1"/>
+    <ROW Component="apimswincoreutill110.dll" ComponentId="{CED75F3A-D0FB-4E45-9127-59ECDD693DC6}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincoreutill110.dll"/>
+    <ROW Component="apimswincoreutill110.dll_1" ComponentId="{35B3ADE0-D3A6-41B5-86E5-1B189AB959B5}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincoreutill110.dll_1"/>
+    <ROW Component="apimswincrtconiol110.dll" ComponentId="{838167B8-F162-42B2-AA82-75521DFB2C5B}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincrtconiol110.dll"/>
+    <ROW Component="apimswincrtconiol110.dll_1" ComponentId="{23FF5641-E8CA-46AD-972B-D6B3E7E159CC}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincrtconiol110.dll_1"/>
+    <ROW Component="apimswincrtconvertl110.dll" ComponentId="{33BA9FB0-E17E-4A96-93D0-402C611C3BF3}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincrtconvertl110.dll"/>
+    <ROW Component="apimswincrtconvertl110.dll_1" ComponentId="{EEDCEFF2-4EFB-4F7A-B43B-DECDC16328A6}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincrtconvertl110.dll_1"/>
+    <ROW Component="apimswincrtenvironmentl110.dll" ComponentId="{C4C1BE24-5912-481D-87BB-4E85F225A495}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincrtenvironmentl110.dll"/>
+    <ROW Component="apimswincrtenvironmentl110.dll_1" ComponentId="{7546DFF7-116F-419E-9293-76EA869260CB}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincrtenvironmentl110.dll_1"/>
+    <ROW Component="apimswincrtfilesysteml110.dll" ComponentId="{79DB75E8-A034-4895-82E7-CE9DDB7C7E29}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincrtfilesysteml110.dll"/>
+    <ROW Component="apimswincrtfilesysteml110.dll_1" ComponentId="{F303035F-AC61-48ED-A3BA-EB38ED0563D0}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincrtfilesysteml110.dll_1"/>
+    <ROW Component="apimswincrtheapl110.dll" ComponentId="{E173EE09-BAEB-4626-B3EF-02405F5FCE85}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincrtheapl110.dll"/>
+    <ROW Component="apimswincrtheapl110.dll_1" ComponentId="{8CB844B9-CC03-4A22-A9C2-B2A3FA81D86A}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincrtheapl110.dll_1"/>
+    <ROW Component="apimswincrtlocalel110.dll" ComponentId="{CC9C7E0D-6C21-4C4A-8561-EC26D8C4DB6B}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincrtlocalel110.dll"/>
+    <ROW Component="apimswincrtlocalel110.dll_1" ComponentId="{F5F34E37-E699-4045-ACCB-9CEE2C48A2C0}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincrtlocalel110.dll_1"/>
+    <ROW Component="apimswincrtmathl110.dll" ComponentId="{E7519913-2504-4F49-A8C6-508B744273FF}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincrtmathl110.dll"/>
+    <ROW Component="apimswincrtmathl110.dll_1" ComponentId="{F27424C4-670D-4146-9354-C8BB9DA6C3D7}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincrtmathl110.dll_1"/>
+    <ROW Component="apimswincrtprocessl110.dll" ComponentId="{5F366D82-AE49-4003-A61D-407C2C5F7293}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincrtprocessl110.dll"/>
+    <ROW Component="apimswincrtprocessl110.dll_1" ComponentId="{CC1B5635-5750-4ACC-8953-273552C0F250}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincrtprocessl110.dll_1"/>
+    <ROW Component="apimswincrtruntimel110.dll" ComponentId="{EDDEE026-B752-445F-B7FD-77ED572D649E}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincrtruntimel110.dll"/>
+    <ROW Component="apimswincrtruntimel110.dll_1" ComponentId="{65ADB783-8AC1-4DF7-B2DD-8548D24F326F}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincrtruntimel110.dll_1"/>
+    <ROW Component="apimswincrtstdiol110.dll" ComponentId="{A43FFBF5-F5A0-4F4D-BEB9-4A34B37C7F44}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincrtstdiol110.dll"/>
+    <ROW Component="apimswincrtstdiol110.dll_1" ComponentId="{E4A64BCC-32F9-4D3A-BE00-C214546777CF}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincrtstdiol110.dll_1"/>
+    <ROW Component="apimswincrtstringl110.dll" ComponentId="{3463D1C6-4142-40FB-928B-CC49D1F8E179}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincrtstringl110.dll"/>
+    <ROW Component="apimswincrtstringl110.dll_1" ComponentId="{7E2FA6D4-6A74-4586-AC1E-E4BC24EA5B3A}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincrtstringl110.dll_1"/>
+    <ROW Component="apimswincrttimel110.dll" ComponentId="{32108AA2-E8A9-4002-BD56-08FC797BA913}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincrttimel110.dll"/>
+    <ROW Component="apimswincrttimel110.dll_1" ComponentId="{E47D4679-9CB8-4F27-B666-0109F2F4B797}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincrttimel110.dll_1"/>
+    <ROW Component="apimswincrtutilityl110.dll" ComponentId="{2E56B639-34DA-4885-9E0B-270B6C87FEBE}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="apimswincrtutilityl110.dll"/>
+    <ROW Component="apimswincrtutilityl110.dll_1" ComponentId="{1E363871-34B3-469A-9F9A-291D05C3C6DB}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="apimswincrtutilityl110.dll_1"/>
+    <ROW Component="base_library.zip" ComponentId="{9969BDCE-20E0-4FAA-91BA-333CEFE4066D}" Directory_="CaYaSafe32_Dir" Attributes="0" KeyPath="base_library.zip" Type="0"/>
+    <ROW Component="base_library.zip_1" ComponentId="{9E516E16-F483-41EA-8DFF-C11F6B82F225}" Directory_="cyRUN_Dir" Attributes="0" KeyPath="base_library.zip_1" Type="0"/>
+    <ROW Component="cacert.pem" ComponentId="{21958E40-0AFE-4874-B724-5925420903A7}" Directory_="certifi_Dir" Attributes="0" KeyPath="cacert.pem" Type="0"/>
+    <ROW Component="cyRUN" ComponentId="{B761588C-1CCE-4027-9298-941EA3A83402}" Directory_="APPDIR" Attributes="4" KeyPath="cyRUN"/>
+    <ROW Component="cyRUN.exe" ComponentId="{BB729038-9074-4603-A7A0-E8EE845C480E}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="cyRUN.exe"/>
+    <ROW Component="libcrypto1_1.dll" ComponentId="{BF776DA0-13F7-46CB-A642-82F11DF8ED36}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="libcrypto1_1.dll"/>
+    <ROW Component="libcrypto1_1.dll_1" ComponentId="{4093BE72-F262-40FD-A87B-9A14FB4B3428}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="libcrypto1_1.dll_1"/>
+    <ROW Component="libffi7.dll" ComponentId="{BF9748D2-3182-4BC2-9989-D872C387CA8F}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="libffi7.dll"/>
+    <ROW Component="libffi7.dll_1" ComponentId="{0E5D5341-2782-47E8-859A-F759F2E83C63}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="libffi7.dll_1"/>
+    <ROW Component="libssl1_1.dll" ComponentId="{7B0664C1-A64A-46F9-8ACD-F432241AFDCB}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="libssl1_1.dll"/>
+    <ROW Component="libssl1_1.dll_1" ComponentId="{D8B86327-F3D6-48B6-83B8-14C35FE62668}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="libssl1_1.dll_1"/>
+    <ROW Component="md.cp310win_amd64.pyd" ComponentId="{E8FB1A3D-2DFF-48BD-8656-238FE7F638C3}" Directory_="charset_normalizer_Dir" Attributes="256" KeyPath="md.cp310win_amd64.pyd" Type="0"/>
+    <ROW Component="python3.dll" ComponentId="{E71572A3-A80D-49C8-A792-C2EF668FD563}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="python3.dll"/>
+    <ROW Component="python310.dll" ComponentId="{1EC5C563-4362-4BED-8472-24573F228A31}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="python310.dll"/>
+    <ROW Component="python310.dll_1" ComponentId="{22C400CC-8A63-4505-B927-DFF1947C86D7}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="python310.dll_1"/>
+    <ROW Component="ucrtbase.dll" ComponentId="{49FCA4B5-6E30-4F4D-9F07-69512B690CEA}" Directory_="CaYaSafe32_Dir" Attributes="256" KeyPath="ucrtbase.dll"/>
+    <ROW Component="ucrtbase.dll_1" ComponentId="{9C149288-D580-4A3A-BF68-9CF3590F4404}" Directory_="cyRUN_Dir" Attributes="256" KeyPath="ucrtbase.dll_1"/>
+    <ROW Component="zxing.dll" ComponentId="{49EF2FAA-9296-4845-AE94-EC9DE675140A}" Directory_="CaYaLab_Dir" Attributes="0" KeyPath="zxing.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="AI32BitFiles" Title="32-bit" Description="32-bit Executables and Libraries" Display="5" Level="1" Directory_="APPDIR" Attributes="0"/>
+    <ROW Feature="AI64BitFiles" Title="64-bit" Description="64-bit Executables and Libraries" Display="3" Level="1" Directory_="APPDIR" Attributes="0"/>
+    <ROW Feature="AIOtherFiles" Title="Common" Description="Shared Resource and Regular Files" Display="7" Level="1" Directory_="APPDIR" Attributes="0"/>
+    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0"/>
+    <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="CaYa.exe" Component_="CaYa.exe" FileName="CaYa.exe" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\SiteEngelleyiciArayüz\CaYa.exe" SelfReg="false" DigSign="true"/>
+    <ROW File="Gma.QrCodeNet.Encoding.dll" Component_="Gma.QrCodeNet.Encoding.dll" FileName="GMAQRC~1.DLL|Gma.QrCodeNet.Encoding.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\SiteEngelleyiciArayüz\Gma.QrCodeNet.Encoding.dll" SelfReg="false"/>
+    <ROW File="QrCodeGenerator.dll" Component_="QrCodeGenerator.dll" FileName="QRCODE~1.DLL|QrCodeGenerator.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\SiteEngelleyiciArayüz\QrCodeGenerator.dll" SelfReg="false"/>
+    <ROW File="QRCoder.dll" Component_="QRCoder.dll" FileName="QRCoder.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\SiteEngelleyiciArayüz\QRCoder.dll" SelfReg="false"/>
+    <ROW File="SiteEngelleyiciArayz.deps.json" Component_="SiteEngelleyiciArayz.deps.json" FileName="SITEEN~1.JSO|SiteEngelleyiciArayüz.deps.json" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\SiteEngelleyiciArayüz\SiteEngelleyiciArayüz.deps.json" SelfReg="false"/>
+    <ROW File="SiteEngelleyiciArayz.dll" Component_="SiteEngelleyiciArayz.dll" FileName="SITEEN~1.DLL|SiteEngelleyiciArayüz.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\SiteEngelleyiciArayüz\SiteEngelleyiciArayüz.dll" SelfReg="false"/>
+    <ROW File="SiteEngelleyiciArayz.pdb" Component_="SiteEngelleyiciArayz.dll" FileName="SITEEN~1.PDB|SiteEngelleyiciArayüz.pdb" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\SiteEngelleyiciArayüz\SiteEngelleyiciArayüz.pdb" SelfReg="false"/>
+    <ROW File="SiteEngelleyiciArayz.runtimeconfig.json" Component_="SiteEngelleyiciArayz.deps.json" FileName="SITEEN~2.JSO|SiteEngelleyiciArayüz.runtimeconfig.json" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\SiteEngelleyiciArayüz\SiteEngelleyiciArayüz.runtimeconfig.json" SelfReg="false"/>
+    <ROW File="TwoFactorAuth.Net.dll" Component_="TwoFactorAuth.Net.dll" FileName="TWOFAC~1.DLL|TwoFactorAuth.Net.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\SiteEngelleyiciArayüz\TwoFactorAuth.Net.dll" SelfReg="false"/>
+    <ROW File="TwoFactorAuth.Net.QRCoder.dll" Component_="TwoFactorAuth.Net.QRCoder.dll" FileName="TWOFAC~2.DLL|TwoFactorAuth.Net.QRCoder.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\SiteEngelleyiciArayüz\TwoFactorAuth.Net.QRCoder.dll" SelfReg="false"/>
+    <ROW File="zxing.dll" Component_="zxing.dll" FileName="zxing.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\SiteEngelleyiciArayüz\zxing.dll" SelfReg="false"/>
+    <ROW File="CaYaUnkown.exe" Component_="CaYaUnkown.exe" FileName="CAYAUN~1.EXE|CaYaUnkown.exe" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\Bilinmeyen\CaYaUnkown.exe" SelfReg="false" DigSign="true"/>
+    <ROW File="SiteEngellemeTitile2.deps.json" Component_="SiteEngelleyiciArayz.deps.json" FileName="SITEEN~3.JSO|SiteEngellemeTitile2.deps.json" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\Bilinmeyen\SiteEngellemeTitile2.deps.json" SelfReg="false"/>
+    <ROW File="SiteEngellemeTitile2.dll" Component_="SiteEngellemeTitile2.dll" FileName="SITEEN~2.DLL|SiteEngellemeTitile2.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\Bilinmeyen\SiteEngellemeTitile2.dll" SelfReg="false"/>
+    <ROW File="SiteEngellemeTitile2.pdb" Component_="SiteEngellemeTitile2.dll" FileName="SITEEN~2.PDB|SiteEngellemeTitile2.pdb" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\Bilinmeyen\SiteEngellemeTitile2.pdb" SelfReg="false"/>
+    <ROW File="SiteEngellemeTitile2.runtimeconfig.json" Component_="SiteEngelleyiciArayz.deps.json" FileName="SITEEN~4.JSO|SiteEngellemeTitile2.runtimeconfig.json" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\Bilinmeyen\SiteEngellemeTitile2.runtimeconfig.json" SelfReg="false"/>
+    <ROW File="apimswincoreconsolel110.dll" Component_="apimswincoreconsolel110.dll" FileName="API-MS~1.DLL|api-ms-win-core-console-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-core-console-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoredatetimel110.dll" Component_="apimswincoredatetimel110.dll" FileName="API-MS~2.DLL|api-ms-win-core-datetime-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-core-datetime-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoredebugl110.dll" Component_="apimswincoredebugl110.dll" FileName="API-MS~3.DLL|api-ms-win-core-debug-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-core-debug-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoreerrorhandlingl110.dll" Component_="apimswincoreerrorhandlingl110.dll" FileName="API-MS~4.DLL|api-ms-win-core-errorhandling-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-core-errorhandling-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincorefilel110.dll" Component_="apimswincorefilel110.dll" FileName="API-MS~5.DLL|api-ms-win-core-file-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-core-file-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincorefilel120.dll" Component_="apimswincorefilel120.dll" FileName="API-MS~6.DLL|api-ms-win-core-file-l1-2-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-core-file-l1-2-0.dll" SelfReg="false"/>
+    <ROW File="apimswincorefilel210.dll" Component_="apimswincorefilel210.dll" FileName="API-MS~7.DLL|api-ms-win-core-file-l2-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-core-file-l2-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincorehandlel110.dll" Component_="apimswincorehandlel110.dll" FileName="API-MS~8.DLL|api-ms-win-core-handle-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-core-handle-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoreheapl110.dll" Component_="apimswincoreheapl110.dll" FileName="API-MS~9.DLL|api-ms-win-core-heap-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-core-heap-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoreinterlockedl110.dll" Component_="apimswincoreinterlockedl110.dll" FileName="API-M~10.DLL|api-ms-win-core-interlocked-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-core-interlocked-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincorelibraryloaderl110.dll" Component_="apimswincorelibraryloaderl110.dll" FileName="API-M~11.DLL|api-ms-win-core-libraryloader-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-core-libraryloader-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincorelocalizationl120.dll" Component_="apimswincorelocalizationl120.dll" FileName="API-M~12.DLL|api-ms-win-core-localization-l1-2-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-core-localization-l1-2-0.dll" SelfReg="false"/>
+    <ROW File="apimswincorememoryl110.dll" Component_="apimswincorememoryl110.dll" FileName="API-M~13.DLL|api-ms-win-core-memory-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-core-memory-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincorenamedpipel110.dll" Component_="apimswincorenamedpipel110.dll" FileName="API-M~14.DLL|api-ms-win-core-namedpipe-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-core-namedpipe-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoreprocessenvironmentl110.dll" Component_="apimswincoreprocessenvironmentl110.dll" FileName="API-M~15.DLL|api-ms-win-core-processenvironment-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-core-processenvironment-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoreprocessthreadsl110.dll" Component_="apimswincoreprocessthreadsl110.dll" FileName="API-M~16.DLL|api-ms-win-core-processthreads-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-core-processthreads-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoreprocessthreadsl111.dll" Component_="apimswincoreprocessthreadsl111.dll" FileName="API-M~17.DLL|api-ms-win-core-processthreads-l1-1-1.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-core-processthreads-l1-1-1.dll" SelfReg="false"/>
+    <ROW File="apimswincoreprofilel110.dll" Component_="apimswincoreprofilel110.dll" FileName="API-M~18.DLL|api-ms-win-core-profile-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-core-profile-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincorertlsupportl110.dll" Component_="apimswincorertlsupportl110.dll" FileName="API-M~19.DLL|api-ms-win-core-rtlsupport-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-core-rtlsupport-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincorestringl110.dll" Component_="apimswincorestringl110.dll" FileName="API-M~20.DLL|api-ms-win-core-string-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-core-string-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoresynchl110.dll" Component_="apimswincoresynchl110.dll" FileName="API-M~21.DLL|api-ms-win-core-synch-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-core-synch-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoresynchl120.dll" Component_="apimswincoresynchl120.dll" FileName="API-M~22.DLL|api-ms-win-core-synch-l1-2-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-core-synch-l1-2-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoresysinfol110.dll" Component_="apimswincoresysinfol110.dll" FileName="API-M~23.DLL|api-ms-win-core-sysinfo-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-core-sysinfo-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoretimezonel110.dll" Component_="apimswincoretimezonel110.dll" FileName="API-M~24.DLL|api-ms-win-core-timezone-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-core-timezone-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoreutill110.dll" Component_="apimswincoreutill110.dll" FileName="API-M~25.DLL|api-ms-win-core-util-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-core-util-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtconiol110.dll" Component_="apimswincrtconiol110.dll" FileName="API-M~26.DLL|api-ms-win-crt-conio-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-crt-conio-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtconvertl110.dll" Component_="apimswincrtconvertl110.dll" FileName="API-M~27.DLL|api-ms-win-crt-convert-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-crt-convert-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtenvironmentl110.dll" Component_="apimswincrtenvironmentl110.dll" FileName="API-M~28.DLL|api-ms-win-crt-environment-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-crt-environment-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtfilesysteml110.dll" Component_="apimswincrtfilesysteml110.dll" FileName="API-M~29.DLL|api-ms-win-crt-filesystem-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-crt-filesystem-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtheapl110.dll" Component_="apimswincrtheapl110.dll" FileName="API-M~30.DLL|api-ms-win-crt-heap-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-crt-heap-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtlocalel110.dll" Component_="apimswincrtlocalel110.dll" FileName="API-M~31.DLL|api-ms-win-crt-locale-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-crt-locale-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtmathl110.dll" Component_="apimswincrtmathl110.dll" FileName="API-M~32.DLL|api-ms-win-crt-math-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-crt-math-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtprocessl110.dll" Component_="apimswincrtprocessl110.dll" FileName="API-M~33.DLL|api-ms-win-crt-process-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-crt-process-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtruntimel110.dll" Component_="apimswincrtruntimel110.dll" FileName="API-M~34.DLL|api-ms-win-crt-runtime-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-crt-runtime-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtstdiol110.dll" Component_="apimswincrtstdiol110.dll" FileName="API-M~35.DLL|api-ms-win-crt-stdio-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-crt-stdio-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtstringl110.dll" Component_="apimswincrtstringl110.dll" FileName="API-M~36.DLL|api-ms-win-crt-string-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-crt-string-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrttimel110.dll" Component_="apimswincrttimel110.dll" FileName="API-M~37.DLL|api-ms-win-crt-time-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-crt-time-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtutilityl110.dll" Component_="apimswincrtutilityl110.dll" FileName="API-M~38.DLL|api-ms-win-crt-utility-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\api-ms-win-crt-utility-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="base_library.zip" Component_="base_library.zip" FileName="BASE_L~1.ZIP|base_library.zip" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\base_library.zip" SelfReg="false"/>
+    <ROW File="CaYaSafe32.exe" Component_="CaYaSafe32.exe" FileName="CAYASA~1.EXE|CaYaSafe32.exe" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\CaYaSafe32.exe" SelfReg="false" DigSign="true"/>
+    <ROW File="cacert.pem" Component_="cacert.pem" FileName="cacert.pem" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\certifi\cacert.pem" SelfReg="false"/>
+    <ROW File="py.typed" Component_="cacert.pem" FileName="PY~1.TYP|py.typed" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\certifi\py.typed" SelfReg="false"/>
+    <ROW File="md.cp310win_amd64.pyd" Component_="md.cp310win_amd64.pyd" FileName="MDCP31~1.PYD|md.cp310-win_amd64.pyd" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\charset_normalizer\md.cp310-win_amd64.pyd" SelfReg="false"/>
+    <ROW File="md__mypyc.cp310win_amd64.pyd" Component_="md.cp310win_amd64.pyd" FileName="MD__MY~1.PYD|md__mypyc.cp310-win_amd64.pyd" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\charset_normalizer\md__mypyc.cp310-win_amd64.pyd" SelfReg="false"/>
+    <ROW File="libcrypto1_1.dll" Component_="libcrypto1_1.dll" FileName="LIBCRY~1.DLL|libcrypto-1_1.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\libcrypto-1_1.dll" SelfReg="false"/>
+    <ROW File="libffi7.dll" Component_="libffi7.dll" FileName="libffi-7.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\libffi-7.dll" SelfReg="false"/>
+    <ROW File="libssl1_1.dll" Component_="libssl1_1.dll" FileName="LIBSSL~1.DLL|libssl-1_1.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\libssl-1_1.dll" SelfReg="false"/>
+    <ROW File="pyexpat.pyd" Component_="base_library.zip" FileName="pyexpat.pyd" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\pyexpat.pyd" SelfReg="false"/>
+    <ROW File="python310.dll" Component_="python310.dll" FileName="PYTHON~1.DLL|python310.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\python310.dll" SelfReg="false"/>
+    <ROW File="select.pyd" Component_="base_library.zip" FileName="select.pyd" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\select.pyd" SelfReg="false"/>
+    <ROW File="ucrtbase.dll" Component_="ucrtbase.dll" FileName="ucrtbase.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\ucrtbase.dll" SelfReg="false"/>
+    <ROW File="unicodedata.pyd" Component_="base_library.zip" FileName="UNICOD~1.PYD|unicodedata.pyd" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\unicodedata.pyd" SelfReg="false"/>
+    <ROW File="VCRUNTIME140.dll" Component_="VCRUNTIME140.dll" FileName="VCRUNT~1.DLL|VCRUNTIME140.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\VCRUNTIME140.dll" SelfReg="false"/>
+    <ROW File="_asyncio.pyd" Component_="base_library.zip" FileName="_asyncio.pyd" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\_asyncio.pyd" SelfReg="false"/>
+    <ROW File="_bz2.pyd" Component_="base_library.zip" FileName="_bz2.pyd" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\_bz2.pyd" SelfReg="false"/>
+    <ROW File="_ctypes.pyd" Component_="base_library.zip" FileName="_ctypes.pyd" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\_ctypes.pyd" SelfReg="false"/>
+    <ROW File="_decimal.pyd" Component_="base_library.zip" FileName="_decimal.pyd" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\_decimal.pyd" SelfReg="false"/>
+    <ROW File="_hashlib.pyd" Component_="base_library.zip" FileName="_hashlib.pyd" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\_hashlib.pyd" SelfReg="false"/>
+    <ROW File="_lzma.pyd" Component_="base_library.zip" FileName="_lzma.pyd" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\_lzma.pyd" SelfReg="false"/>
+    <ROW File="_multiprocessing.pyd" Component_="base_library.zip" FileName="_MULTI~1.PYD|_multiprocessing.pyd" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\_multiprocessing.pyd" SelfReg="false"/>
+    <ROW File="_overlapped.pyd" Component_="base_library.zip" FileName="_OVERL~1.PYD|_overlapped.pyd" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\_overlapped.pyd" SelfReg="false"/>
+    <ROW File="_queue.pyd" Component_="base_library.zip" FileName="_queue.pyd" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\_queue.pyd" SelfReg="false"/>
+    <ROW File="_socket.pyd" Component_="base_library.zip" FileName="_socket.pyd" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\_socket.pyd" SelfReg="false"/>
+    <ROW File="_ssl.pyd" Component_="base_library.zip" FileName="_ssl.pyd" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaSafe32\_ssl.pyd" SelfReg="false"/>
+    <ROW File="apimswincoreconsolel110.dll_1" Component_="apimswincoreconsolel110.dll_1" FileName="API-MS~1.DLL|api-ms-win-core-console-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-core-console-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoredatetimel110.dll_1" Component_="apimswincoredatetimel110.dll_1" FileName="API-MS~2.DLL|api-ms-win-core-datetime-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-core-datetime-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoredebugl110.dll_1" Component_="apimswincoredebugl110.dll_1" FileName="API-MS~3.DLL|api-ms-win-core-debug-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-core-debug-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoreerrorhandlingl110.dll_1" Component_="apimswincoreerrorhandlingl110.dll_1" FileName="API-MS~4.DLL|api-ms-win-core-errorhandling-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-core-errorhandling-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincorefilel110.dll_1" Component_="apimswincorefilel110.dll_1" FileName="API-MS~5.DLL|api-ms-win-core-file-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-core-file-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincorefilel120.dll_1" Component_="apimswincorefilel120.dll_1" FileName="API-MS~6.DLL|api-ms-win-core-file-l1-2-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-core-file-l1-2-0.dll" SelfReg="false"/>
+    <ROW File="apimswincorefilel210.dll_1" Component_="apimswincorefilel210.dll_1" FileName="API-MS~7.DLL|api-ms-win-core-file-l2-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-core-file-l2-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincorehandlel110.dll_1" Component_="apimswincorehandlel110.dll_1" FileName="API-MS~8.DLL|api-ms-win-core-handle-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-core-handle-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoreheapl110.dll_1" Component_="apimswincoreheapl110.dll_1" FileName="API-MS~9.DLL|api-ms-win-core-heap-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-core-heap-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoreinterlockedl110.dll_1" Component_="apimswincoreinterlockedl110.dll_1" FileName="API-M~10.DLL|api-ms-win-core-interlocked-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-core-interlocked-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincorelibraryloaderl110.dll_1" Component_="apimswincorelibraryloaderl110.dll_1" FileName="API-M~11.DLL|api-ms-win-core-libraryloader-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-core-libraryloader-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincorelocalizationl120.dll_1" Component_="apimswincorelocalizationl120.dll_1" FileName="API-M~12.DLL|api-ms-win-core-localization-l1-2-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-core-localization-l1-2-0.dll" SelfReg="false"/>
+    <ROW File="apimswincorememoryl110.dll_1" Component_="apimswincorememoryl110.dll_1" FileName="API-M~13.DLL|api-ms-win-core-memory-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-core-memory-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincorenamedpipel110.dll_1" Component_="apimswincorenamedpipel110.dll_1" FileName="API-M~14.DLL|api-ms-win-core-namedpipe-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-core-namedpipe-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoreprocessenvironmentl110.dll_1" Component_="apimswincoreprocessenvironmentl110.dll_1" FileName="API-M~15.DLL|api-ms-win-core-processenvironment-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-core-processenvironment-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoreprocessthreadsl110.dll_1" Component_="apimswincoreprocessthreadsl110.dll_1" FileName="API-M~16.DLL|api-ms-win-core-processthreads-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-core-processthreads-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoreprocessthreadsl111.dll_1" Component_="apimswincoreprocessthreadsl111.dll_1" FileName="API-M~17.DLL|api-ms-win-core-processthreads-l1-1-1.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-core-processthreads-l1-1-1.dll" SelfReg="false"/>
+    <ROW File="apimswincoreprofilel110.dll_1" Component_="apimswincoreprofilel110.dll_1" FileName="API-M~18.DLL|api-ms-win-core-profile-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-core-profile-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincorertlsupportl110.dll_1" Component_="apimswincorertlsupportl110.dll_1" FileName="API-M~19.DLL|api-ms-win-core-rtlsupport-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-core-rtlsupport-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincorestringl110.dll_1" Component_="apimswincorestringl110.dll_1" FileName="API-M~20.DLL|api-ms-win-core-string-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-core-string-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoresynchl110.dll_1" Component_="apimswincoresynchl110.dll_1" FileName="API-M~21.DLL|api-ms-win-core-synch-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-core-synch-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoresynchl120.dll_1" Component_="apimswincoresynchl120.dll_1" FileName="API-M~22.DLL|api-ms-win-core-synch-l1-2-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-core-synch-l1-2-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoresysinfol110.dll_1" Component_="apimswincoresysinfol110.dll_1" FileName="API-M~23.DLL|api-ms-win-core-sysinfo-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-core-sysinfo-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoretimezonel110.dll_1" Component_="apimswincoretimezonel110.dll_1" FileName="API-M~24.DLL|api-ms-win-core-timezone-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-core-timezone-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoreutill110.dll_1" Component_="apimswincoreutill110.dll_1" FileName="API-M~25.DLL|api-ms-win-core-util-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-core-util-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtconiol110.dll_1" Component_="apimswincrtconiol110.dll_1" FileName="API-M~26.DLL|api-ms-win-crt-conio-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-crt-conio-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtconvertl110.dll_1" Component_="apimswincrtconvertl110.dll_1" FileName="API-M~27.DLL|api-ms-win-crt-convert-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-crt-convert-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtenvironmentl110.dll_1" Component_="apimswincrtenvironmentl110.dll_1" FileName="API-M~28.DLL|api-ms-win-crt-environment-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-crt-environment-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtfilesysteml110.dll_1" Component_="apimswincrtfilesysteml110.dll_1" FileName="API-M~29.DLL|api-ms-win-crt-filesystem-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-crt-filesystem-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtheapl110.dll_1" Component_="apimswincrtheapl110.dll_1" FileName="API-M~30.DLL|api-ms-win-crt-heap-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-crt-heap-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtlocalel110.dll_1" Component_="apimswincrtlocalel110.dll_1" FileName="API-M~31.DLL|api-ms-win-crt-locale-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-crt-locale-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtmathl110.dll_1" Component_="apimswincrtmathl110.dll_1" FileName="API-M~32.DLL|api-ms-win-crt-math-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-crt-math-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtprocessl110.dll_1" Component_="apimswincrtprocessl110.dll_1" FileName="API-M~33.DLL|api-ms-win-crt-process-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-crt-process-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtruntimel110.dll_1" Component_="apimswincrtruntimel110.dll_1" FileName="API-M~34.DLL|api-ms-win-crt-runtime-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-crt-runtime-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtstdiol110.dll_1" Component_="apimswincrtstdiol110.dll_1" FileName="API-M~35.DLL|api-ms-win-crt-stdio-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-crt-stdio-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtstringl110.dll_1" Component_="apimswincrtstringl110.dll_1" FileName="API-M~36.DLL|api-ms-win-crt-string-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-crt-string-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrttimel110.dll_1" Component_="apimswincrttimel110.dll_1" FileName="API-M~37.DLL|api-ms-win-crt-time-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-crt-time-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtutilityl110.dll_1" Component_="apimswincrtutilityl110.dll_1" FileName="API-M~38.DLL|api-ms-win-crt-utility-l1-1-0.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\api-ms-win-crt-utility-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="base_library.zip_1" Component_="base_library.zip_1" FileName="BASE_L~1.ZIP|base_library.zip" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\base_library.zip" SelfReg="false"/>
+    <ROW File="libcrypto1_1.dll_1" Component_="libcrypto1_1.dll_1" FileName="LIBCRY~1.DLL|libcrypto-1_1.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\libcrypto-1_1.dll" SelfReg="false"/>
+    <ROW File="libffi7.dll_1" Component_="libffi7.dll_1" FileName="libffi-7.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\libffi-7.dll" SelfReg="false"/>
+    <ROW File="libssl1_1.dll_1" Component_="libssl1_1.dll_1" FileName="LIBSSL~1.DLL|libssl-1_1.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\libssl-1_1.dll" SelfReg="false"/>
+    <ROW File="_psutil_windows.pyd" Component_="_psutil_windows.pyd" FileName="_PSUTI~1.PYD|_psutil_windows.pyd" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\psutil\_psutil_windows.pyd" SelfReg="false"/>
+    <ROW File="pyexpat.pyd_1" Component_="base_library.zip_1" FileName="pyexpat.pyd" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\pyexpat.pyd" SelfReg="false"/>
+    <ROW File="python3.dll" Component_="python3.dll" FileName="python3.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\python3.dll" SelfReg="false"/>
+    <ROW File="python310.dll_1" Component_="python310.dll_1" FileName="PYTHON~1.DLL|python310.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\python310.dll" SelfReg="false"/>
+    <ROW File="select.pyd_1" Component_="base_library.zip_1" FileName="select.pyd" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\select.pyd" SelfReg="false"/>
+    <ROW File="ucrtbase.dll_1" Component_="ucrtbase.dll_1" FileName="ucrtbase.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\ucrtbase.dll" SelfReg="false"/>
+    <ROW File="unicodedata.pyd_1" Component_="base_library.zip_1" FileName="UNICOD~1.PYD|unicodedata.pyd" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\unicodedata.pyd" SelfReg="false"/>
+    <ROW File="VCRUNTIME140.dll_1" Component_="VCRUNTIME140.dll_1" FileName="VCRUNT~1.DLL|VCRUNTIME140.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\VCRUNTIME140.dll" SelfReg="false"/>
+    <ROW File="_bz2.pyd_1" Component_="base_library.zip_1" FileName="_bz2.pyd" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\_bz2.pyd" SelfReg="false"/>
+    <ROW File="_ctypes.pyd_1" Component_="base_library.zip_1" FileName="_ctypes.pyd" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\_ctypes.pyd" SelfReg="false"/>
+    <ROW File="_decimal.pyd_1" Component_="base_library.zip_1" FileName="_decimal.pyd" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\_decimal.pyd" SelfReg="false"/>
+    <ROW File="_elementtree.pyd" Component_="base_library.zip_1" FileName="_ELEME~1.PYD|_elementtree.pyd" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\_elementtree.pyd" SelfReg="false"/>
+    <ROW File="_hashlib.pyd_1" Component_="base_library.zip_1" FileName="_hashlib.pyd" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\_hashlib.pyd" SelfReg="false"/>
+    <ROW File="_lzma.pyd_1" Component_="base_library.zip_1" FileName="_lzma.pyd" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\_lzma.pyd" SelfReg="false"/>
+    <ROW File="_socket.pyd_1" Component_="base_library.zip_1" FileName="_socket.pyd" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\_socket.pyd" SelfReg="false"/>
+    <ROW File="_ssl.pyd_1" Component_="base_library.zip_1" FileName="_ssl.pyd" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\_ssl.pyd" SelfReg="false"/>
+    <ROW File="CaYa.exe_1" Component_="CaYa.exe_1" FileName="CaYa.exe" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaLabOffline\CaYa.exe" SelfReg="false" DigSign="true"/>
+    <ROW File="CaYaLabOffline.deps.json" Component_="CaYaLabOffline.deps.json" FileName="CAYALA~1.JSO|CaYaLabOffline.deps.json" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaLabOffline\CaYaLabOffline.deps.json" SelfReg="false"/>
+    <ROW File="CaYaLabOffline.dll" Component_="CaYaLabOffline.dll" FileName="CAYALA~1.DLL|CaYaLabOffline.dll" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaLabOffline\CaYaLabOffline.dll" SelfReg="false"/>
+    <ROW File="CaYaLabOffline.pdb" Component_="CaYaLabOffline.dll" FileName="CAYALA~1.PDB|CaYaLabOffline.pdb" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaLabOffline\CaYaLabOffline.pdb" SelfReg="false"/>
+    <ROW File="CaYaLabOffline.runtimeconfig.json" Component_="CaYaLabOffline.deps.json" FileName="CAYALA~2.JSO|CaYaLabOffline.runtimeconfig.json" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\CaYaLabOffline\CaYaLabOffline.runtimeconfig.json" SelfReg="false"/>
+    <ROW File="cyRUN.exe" Component_="cyRUN.exe" FileName="cyRUN.exe" Attributes="0" SourcePath="..\..\..\..\OneDrive\Masaüstü\Yeni klasör (3)\V2\V3\V4\V5\V6\V7\cyRUN\cyRUN.exe" SelfReg="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.AiPersistentPropComponent">
+    <ROW Property="AI_INSTALLPERUSER" Registry="AI_INSTALLPERUSER" HklmSearch="AI_INSTALLPERUSER" HkcuSearch="AI_INSTALLPERUSER_1"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
+    <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BootstrapperUISequenceComponent">
+    <ROW Action="AI_DetectSoftware" Sequence="151"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFolder="..\..\..\..\OneDrive\Masaüstü" Languages="en" InstallationType="2" CabsLocation="1" CompressCabs="false" UseLzma="true" LzmaMethod="2" LzmaCompressionLevel="2" PackageType="1" FilesInsideExe="true" ExeIconPath="..\..\..\..\OneDrive\Masaüstü\App.ico" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" ExtUI="true" UseLargeSchema="true"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
+    <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
+    <ROW Path="&lt;AI_DICTS&gt;ui_en.ail"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DigCertStoreComponent">
+    <ROW TimeStampUrl="http://timestamp.digicert.com" SignerDescription="[|ProductName]" SignOptions="7" SignTool="0" UseSha256="1" Subject="CN=CaYa_2023-10-21_17-8-44" Store="User\MY" KVTenantId="a06021de-25aa-4e20-aaf8-48f7ac3b3613" KVAppId="b33f903a-1774-4cc1-862e-26d0d82a8070" KVName="CaYa" KVCertName="CaYa"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.FragmentComponent">
+    <ROW Fragment="CommonUI.aip" Path="&lt;AI_FRAGS&gt;CommonUI.aip"/>
+    <ROW Fragment="InstallTypeDlg.aip" Path="&lt;AI_THEMES&gt;appinstaller\fragments\InstallTypeDlg.aip"/>
+    <ROW Fragment="MaintenanceWelcomeDlg.aip" Path="&lt;AI_THEMES&gt;appinstaller\fragments\MaintenanceWelcomeDlg.aip"/>
+    <ROW Fragment="SequenceDialogs.aip" Path="&lt;AI_THEMES&gt;appinstaller\fragments\SequenceDialogs.aip"/>
+    <ROW Fragment="Sequences.aip" Path="&lt;AI_FRAGS&gt;Sequences.aip"/>
+    <ROW Fragment="StaticUIStrings.aip" Path="&lt;AI_FRAGS&gt;StaticUIStrings.aip"/>
+    <ROW Fragment="Themes.aip" Path="&lt;AI_FRAGS&gt;Themes.aip"/>
+    <ROW Fragment="UI.aip" Path="&lt;AI_THEMES&gt;appinstaller\fragments\UI.aip"/>
+    <ROW Fragment="Validation.aip" Path="&lt;AI_FRAGS&gt;Validation.aip"/>
+    <ROW Fragment="WelcomeDlg.aip" Path="&lt;AI_THEMES&gt;appinstaller\fragments\WelcomeDlg.aip"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiActionTextComponent">
+    <ROW Action="AI_DeleteLzma" Description="Deleting files extracted from archive" DescriptionLocId="ActionText.Description.AI_DeleteLzma" TemplateLocId="-"/>
+    <ROW Action="AI_DeleteRLzma" Description="Deleting files extracted from archive" DescriptionLocId="ActionText.Description.AI_DeleteLzma" TemplateLocId="-"/>
+    <ROW Action="AI_ExtractFiles" Description="Extracting files from archive" DescriptionLocId="ActionText.Description.AI_ExtractLzma" TemplateLocId="-"/>
+    <ROW Action="AI_ExtractLzma" Description="Extracting files from archive" DescriptionLocId="ActionText.Description.AI_ExtractLzma" TemplateLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiAppSearchComponent">
+    <ROW Property="AI_INSTALLPERUSER" Signature_="AI_INSTALLPERUSER"/>
+    <ROW Property="AI_INSTALLPERUSER" Signature_="AI_INSTALLPERUSER_1"/>
+    <ROW Property="AI_SETUPEXEPATH" Signature_="AI_EXE_PATH_LM" Builds="DefaultBuild"/>
+    <ROW Property="AI_SETUPEXEPATH" Signature_="AI_EXE_PATH_CU" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="Prereq.dll" SourcePath="&lt;AI_CUSTACTS&gt;Prereq.dll"/>
+    <ROW Name="SoftwareDetector.dll" SourcePath="&lt;AI_CUSTACTS&gt;SoftwareDetector.dll"/>
+    <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
+    <ROW Name="app_icon.ico" SourcePath="..\..\..\..\OneDrive\Masaüstü\app_icon.ico"/>
+    <ROW Name="lzmaextractor.dll" SourcePath="&lt;AI_CUSTACTS&gt;lzmaextractor.dll"/>
+    <ATTRIBUTE name="DeletedRows" value="applogoicon.ico@applogoicondark.ico"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCheckBoxComponent">
+    <ATTRIBUTE name="DeletedRows" value="AiSkipExitDlg@VIEWREADME"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiConditionComponent">
+    <ROW Feature_="AI64BitFiles" Level="0" Condition="NOT VersionNT64"/>
+    <ROW Feature_="AI32BitFiles" Level="0" Condition="VersionNT64"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlComponent">
+    <ROW Dialog_="AboutDlg" Control="LicenseAgreementLink" Type="Hyperlink" X="21" Y="63" Width="193" Height="15" Attributes="196611" Text="&lt;a href=&quot;&quot;&gt;Bilgisayar Kullanımı&lt;/a&gt;" TextStyle="[HyperlinkFont]" Order="600" MsiKey="AboutDlg#LicenseAgreementLink"/>
+    <ROW Dialog_="AboutDlg" Control="Hyperlink" Type="Hyperlink" X="21" Y="80" Width="193" Height="15" Attributes="65539" Property="AiReadmeLink" Text="&lt;a href=&quot;&quot;&gt;- Bilgisayardaki Pencereleri Yönetme&lt;/a&gt;" TextStyle="[HyperlinkFont]" Order="700" MsiKey="AboutDlg#Hyperlink"/>
+    <ROW Dialog_="AdminWelcomeDlg" Control="ProductNameTitle" Type="Text" X="15" Y="17" Width="475" Height="32" Attributes="196611" Text="Install [ProductName]?" TextStyle="[ProductNameTitleFont]" Order="600" TextLocId="AppInstaller.Control.Text.ProductName" MsiKey="AdminWelcomeDlg#ProductNameTitle"/>
+    <ROW Dialog_="CancelDlg" Control="Text" Type="Text" X="68" Y="26" Width="234" Height="30" Attributes="196611" Text="[ProductName] Yükleme İşlemini İptal Etmek İstediğinizden Eminmisiniz?" TextStyle="[ManufacturerFont]" Order="200" MsiKey="CancelDlg#Text"/>
+    <ROW Dialog_="ExitDialog" Control="ProductNameTitle" Type="Text" X="15" Y="17" Width="475" Height="32" Attributes="196611" Text="[ProductName] Yüklendi!" TextStyle="[ProductNameTitleFont]" Order="500" MsiKey="ExitDialog#ProductNameTitle"/>
+    <ROW Dialog_="ExitDialog" Control="ProducVersionText" Type="Text" X="16" Y="60" Width="362" Height="15" Attributes="196611" Text="Version: [ProductVersion]" TextStyle="[ManufacturerFont]" Order="800" TextLocId="AppInstaller.Control.Text.ProductVersion" MsiKey="ExitDialog#ProducVersionText"/>
+    <ROW Dialog_="ExitDialog" Control="AboutBtn" Type="ImageButton" X="5" Y="269" Width="18" Height="18" Attributes="4718595" Text="[AboutBtnIcon]" TextStyle="[ManufacturerFont]" Order="900" MsiKey="ExitDialog#AboutBtn" Options="1" ExtType="ImageButton" ExtData="[InfoIconMsi]"/>
+    <ROW Dialog_="FatalError" Control="ProductNameTitle" Type="Text" X="15" Y="17" Width="475" Height="32" Attributes="196611" Text="Install [ProductName]?" TextStyle="[ProductNameTitleFont]" Order="500" TextLocId="AppInstaller.Control.Text.ProductName" MsiKey="FatalError#ProductNameTitle"/>
+    <ROW Dialog_="FilesInUse" Control="ProductNameTitle" Type="Text" X="15" Y="17" Width="475" Height="32" Attributes="196611" Text="Install [ProductName]?" TextStyle="[ProductNameTitleFont]" Order="700" TextLocId="AppInstaller.Control.Text.ProductName" MsiKey="FilesInUse#ProductNameTitle"/>
+    <ROW Dialog_="InstallTypeDlg" Control="ProducVersionText" Type="Text" X="16" Y="60" Width="362" Height="15" Attributes="196611" Text="Version: [ProductVersion]" TextStyle="[ManufacturerFont]" Order="900" TextLocId="AppInstaller.Control.Text.ProductVersion" MsiKey="InstallTypeDlg#ProducVersionText"/>
+    <ROW Dialog_="InstallTypeDlg" Control="ProductLogo" Type="Bitmap" X="404" Y="15" Width="70" Height="70" Attributes="1" Text="[AppLogoIcon]" Order="1000" MsiKey="InstallTypeDlg#ProductLogo"/>
+    <ROW Dialog_="InstallTypeDlg" Control="AboutBtn" Type="ImageButton" X="5" Y="269" Width="18" Height="18" Attributes="4718595" Text="[AboutBtnIcon]" TextStyle="[ManufacturerFont]" Order="1100" MsiKey="InstallTypeDlg#AboutBtn" Options="1" ExtType="ImageButton" ExtData="[InfoIconMsi]"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control="MaintenanceWelcomeDlgDialogInitializer" Type="DialogInitializer" X="0" Y="0" Width="0" Height="0" Attributes="0" Order="-1" TextLocId="-" HelpLocId="-" ExtDataLocId="-"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control="ReinstallButton" Type="ImageButton" X="280" Y="210" Width="95" Height="28" Attributes="3" Text="[ButtonImage]" TextStyle="[ImageBtnFont]" Order="400" MsiKey="MaintenanceWelcomeDlg#ReinstallButton" Options="1" ExtType="ImageButton" ExtData="Tekrar Yükle"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control="LaunchButton" Type="ImageButton" X="379" Y="210" Width="95" Height="28" Attributes="3" Text="[ButtonImage]" TextStyle="[ImageBtnFont]" Order="500" MsiKey="MaintenanceWelcomeDlg#LaunchButton" Options="1" ExtType="ImageButton" ExtData="Kapat"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control="Description" Type="Text" X="16" Y="158" Width="454" Height="30" Attributes="196611" Text="[ProductName] Programını Yeniden Kurmak İstermisin?" TextStyle="[DescriptionFont]" Order="600" MsiKey="MaintenanceWelcomeDlg#Description"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control="ProductNameTitle" Type="Text" X="15" Y="17" Width="475" Height="32" Attributes="196611" Text="[ProductName] Tekrar Kurma" TextStyle="[ProductNameTitleFont]" Order="700" MsiKey="MaintenanceWelcomeDlg#ProductNameTitle"/>
+    <ROW Dialog_="MsiRMFilesInUse" Control="ProductNameTitle" Type="Text" X="15" Y="17" Width="475" Height="32" Attributes="196611" Text="Install [ProductName]?" TextStyle="[ProductNameTitleFont]" Order="700" TextLocId="AppInstaller.Control.Text.ProductName" MsiKey="MsiRMFilesInUse#ProductNameTitle"/>
+    <ROW Dialog_="OutOfDiskDlg" Control="ProductNameTitle" Type="Text" X="15" Y="17" Width="475" Height="32" Attributes="196611" Text="Install [ProductName]?" TextStyle="[ProductNameTitleFont]" Order="500" TextLocId="AppInstaller.Control.Text.ProductName" MsiKey="OutOfDiskDlg#ProductNameTitle"/>
+    <ROW Dialog_="OutOfRbDiskDlg" Control="Description" Type="Text" X="16" Y="94" Width="458" Height="57" Attributes="196611" Text="The highlighted volumes do not have enough disk space available for the currently selected features. You can either remove some files from the highlighted volumes,or select different destination drive(s). Alternatively, you may choose to disable the installer&apos;s rollback functionality. Click Yes if you wish to take the risk to disable rollback." TextStyle="[DescriptionFont]" Order="400" TextLocId="AppInstaller.Control.Text.OutOfRbDiskDlg#Description" MsiKey="OutOfRbDiskDlg#Description"/>
+    <ROW Dialog_="OutOfRbDiskDlg" Control="VolumeList" Type="VolumeCostList" X="16" Y="151" Width="458" Height="54" Attributes="393223" Text="{120}{70}{70}{70}{70}" TextStyle="ListFontDark" Order="500" TextLocId="Control.Text.OutOfDiskDlg#VolumeList" MsiKey="OutOfRbDiskDlg#VolumeList"/>
+    <ROW Dialog_="OutOfRbDiskDlg" Control="ProductNameTitle" Type="Text" X="15" Y="17" Width="475" Height="32" Attributes="196611" Text="Install [ProductName]?" TextStyle="[ProductNameTitleFont]" Order="600" TextLocId="AppInstaller.Control.Text.ProductName" MsiKey="OutOfRbDiskDlg#ProductNameTitle"/>
+    <ROW Dialog_="OutOfRbDiskDlg" Control="CompanyText" Type="Text" X="16" Y="46" Width="362" Height="15" Attributes="196611" Text="Publisher: [Manufacturer]" TextStyle="[ManufacturerFont]" Order="700" TextLocId="AppInstaller.Control.Text.Manufacturer" MsiKey="OutOfRbDiskDlg#CompanyText"/>
+    <ROW Dialog_="OutOfRbDiskDlg" Control="ProductLogo" Type="Bitmap" X="404" Y="15" Width="70" Height="70" Attributes="1" Text="[AppLogoIcon]" Order="800" MsiKey="OutOfRbDiskDlg#ProductLogo"/>
+    <ROW Dialog_="OutOfRbDiskDlg" Control="ProducVersionText" Type="Text" X="16" Y="60" Width="362" Height="15" Attributes="196611" Text="Version: [ProductVersion]" TextStyle="[ManufacturerFont]" Order="900" TextLocId="AppInstaller.Control.Text.ProductVersion" MsiKey="OutOfRbDiskDlg#ProducVersionText"/>
+    <ROW Dialog_="OutOfRbDiskDlg" Control="AboutBtn" Type="ImageButton" X="5" Y="269" Width="18" Height="18" Attributes="4718595" Text="[AboutBtnIcon]" TextStyle="[ManufacturerFont]" Order="1000" MsiKey="OutOfRbDiskDlg#AboutBtn" Options="1" ExtType="ImageButton" ExtData="[InfoIconMsi]"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control="PatchWelcomeDlgDialogInitializer" Type="DialogInitializer" X="0" Y="0" Width="0" Height="0" Attributes="0" Order="-1" TextLocId="-" HelpLocId="-" ExtDataLocId="-"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control="ProductNameTitle" Type="Text" X="15" Y="17" Width="475" Height="32" Attributes="196611" Text="Install [ProductName]?" TextStyle="[ProductNameTitleFont]" Order="600" TextLocId="AppInstaller.Control.Text.ProductName" MsiKey="PatchWelcomeDlg#ProductNameTitle"/>
+    <ROW Dialog_="PrepareDlg" Control="ProductNameTitle" Type="Text" X="15" Y="17" Width="475" Height="32" Attributes="196611" Text="[ProductName] Yükleme" TextStyle="[ProductNameTitleFont]" Order="600" MsiKey="PrepareDlg#ProductNameTitle"/>
+    <ROW Dialog_="ProgressDlg" Control="ProductNameTitle" Type="Text" X="15" Y="17" Width="475" Height="32" Attributes="196611" Text="[ProductName] Yükleniyor..." TextStyle="[ProductNameTitleFont]" Order="700" MsiKey="ProgressDlg#ProductNameTitle"/>
+    <ROW Dialog_="ProgressDlg" Control="StatusLabel" Type="Text" X="16" Y="158" Width="458" Height="15" Attributes="196611" Text="Durum:" TextStyle="[ManufacturerFont]" Order="1000" MsiKey="ProgressDlg#StatusLabel"/>
+    <ROW Dialog_="ProgressDlg" Control="AboutBtn" Type="ImageButton" X="5" Y="269" Width="18" Height="18" Attributes="4718595" Text="[AboutBtnIcon]" TextStyle="[ManufacturerFont]" Order="1200" MsiKey="ProgressDlg#AboutBtn" Options="1" ExtType="ImageButton" ExtData="[InfoIconMsi]"/>
+    <ROW Dialog_="ResumeDlg" Control="ProductNameTitle" Type="Text" X="15" Y="17" Width="475" Height="32" Attributes="196611" Text="Install [ProductName]?" TextStyle="[ProductNameTitleFont]" Order="600" TextLocId="AppInstaller.Control.Text.ProductName" MsiKey="ResumeDlg#ProductNameTitle"/>
+    <ROW Dialog_="UserExit" Control="ProductNameTitle" Type="Text" X="15" Y="17" Width="475" Height="32" Attributes="196611" Text="Install [ProductName]?" TextStyle="[ProductNameTitleFont]" Order="500" TextLocId="AppInstaller.Control.Text.ProductName" MsiKey="UserExit#ProductNameTitle"/>
+    <ROW Dialog_="WelcomeDlg" Control="WelcomeDlgDialogInitializer" Type="DialogInitializer" X="0" Y="0" Width="0" Height="0" Attributes="0" Order="-1" TextLocId="-" HelpLocId="-" ExtDataLocId="-"/>
+    <ROW Dialog_="WelcomeDlg" Control="ProductNameTitle" Type="Text" X="15" Y="17" Width="475" Height="32" Attributes="196611" Text="[ProductName] Yüklemek İstermisiniz?" TextStyle="[ProductNameTitleFont]" Order="600" MsiKey="WelcomeDlg#ProductNameTitle"/>
+    <ROW Dialog_="WelcomeDlg" Control="ProductLogo" Type="Bitmap" X="321" Y="199" Width="41" Height="39" Attributes="1" Text="[AppLogoIcon]" Order="800" MsiKey="WelcomeDlg#ProductLogo"/>
+    <ROW Dialog_="WelcomeDlg" Control="AboutBtn" Type="ImageButton" X="5" Y="269" Width="18" Height="18" Attributes="4718595" Text="[AboutBtnIcon]" TextStyle="[ManufacturerFont]" Order="1000" MsiKey="WelcomeDlg#AboutBtn" Options="1" ExtType="ImageButton" ExtData="[InfoIconMsi]"/>
+    <ATTRIBUTE name="DeletedRows" value="ExitDialog#LaunchBtn@ExitDialog#ViewReadmeCheckBox@ExitDialog#ViewReadmeText@ProgressDlg#LaunchCheckBox@WelcomeDlg#LaunchCheckBox"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlConditionComponent">
+    <ATTRIBUTE name="DeletedRows" value="ExitDialog#LaunchBtn#Hide#((NOT AI_INSTALL) AND (NOT AI_PATCH) AND (NOT AI_MAINT)) OR ((CTRLS &lt;&gt; 2) AND (CTRLS &lt;&gt; 3))@ExitDialog#ViewReadmeCheckBox#Hide#(((NOT AI_INSTALL) AND (NOT AI_PATCH)) OR ((CTRLS &lt;&gt; 1) AND (CTRLS &lt;&gt; 3))) OR AiReadmeLink@ExitDialog#ViewReadmeText#Hide#(((NOT AI_INSTALL) AND (NOT AI_PATCH)) OR ((CTRLS &lt;&gt; 1) AND (CTRLS &lt;&gt; 3))) OR AiReadmeLink@ProgressDlg#LaunchCheckBox#Hide#((NOT AI_INSTALL) AND (NOT AI_PATCH)) OR ((CTRLS &lt;&gt; 2) AND (CTRLS &lt;&gt; 3))@WelcomeDlg#LaunchCheckBox#Hide#((NOT AI_INSTALL) AND (NOT AI_PATCH)) OR ((CTRLS &lt;&gt; 2) AND (CTRLS &lt;&gt; 3))"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
+    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="EndDialog" Argument="Return" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="EndDialog" Argument="Return" Condition="AI_INSTALL AND CustomInstallation" Ordering="2"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control_="Next" Event="EndDialog" Argument="Return" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="EndDialog" Argument="Return" Condition="AI_PATCH" Ordering="201"/>
+    <ROW Dialog_="ResumeDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_RESUME" Ordering="99"/>
+    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="SpawnDialog" Argument="OutOfRbDiskDlg" Condition="AI_INSTALL AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND (PROMPTROLLBACKCOST=&quot;P&quot; OR NOT PROMPTROLLBACKCOST)" Ordering="3" Options="2"/>
+    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="EnableRollback" Argument="False" Condition="AI_INSTALL AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND PROMPTROLLBACKCOST=&quot;D&quot;" Ordering="4" Options="2"/>
+    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="SpawnDialog" Argument="OutOfDiskDlg" Condition="AI_INSTALL AND ( (OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 1) OR (OutOfDiskSpace = 1 AND PROMPTROLLBACKCOST=&quot;F&quot;) )" Ordering="5" Options="2"/>
+    <ROW Dialog_="WelcomeDlg" Control_="WelcomeDlgDialogInitializer" Event="[AI_ButtonText_Next_Orig]" Argument="[ButtonText_Next]" Condition="AI_INSTALL" Ordering="0" Options="2"/>
+    <ROW Dialog_="WelcomeDlg" Control_="WelcomeDlgDialogInitializer" Event="[ButtonText_Next]" Argument="[[AI_CommitButton]]" Condition="AI_INSTALL" Ordering="1" Options="2"/>
+    <ROW Dialog_="WelcomeDlg" Control_="WelcomeDlgDialogInitializer" Event="[AI_Text_Next_Orig]" Argument="[Text_Next]" Condition="AI_INSTALL" Ordering="2" Options="2"/>
+    <ROW Dialog_="WelcomeDlg" Control_="WelcomeDlgDialogInitializer" Event="[Text_Next]" Argument="[Text_Install]" Condition="AI_INSTALL" Ordering="3" Options="2"/>
+    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="[ButtonText_Next]" Argument="[AI_ButtonText_Next_Orig]" Condition="AI_INSTALL" Ordering="6" Options="2"/>
+    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="[Text_Next]" Argument="[AI_Text_Next_Orig]" Condition="AI_INSTALL" Ordering="7" Options="2"/>
+    <ROW Dialog_="WelcomeDlg" Control_="Back" Event="[ButtonText_Next]" Argument="[AI_ButtonText_Next_Orig]" Condition="AI_INSTALL" Ordering="0" Options="2"/>
+    <ROW Dialog_="WelcomeDlg" Control_="Back" Event="[Text_Next]" Argument="[AI_Text_Next_Orig]" Condition="AI_INSTALL" Ordering="1" Options="2"/>
+    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="SpawnDialog" Argument="OutOfRbDiskDlg" Condition="AI_INSTALL AND CustomInstallation AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND (PROMPTROLLBACKCOST=&quot;P&quot; OR NOT PROMPTROLLBACKCOST)" Ordering="8" Options="2"/>
+    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="EnableRollback" Argument="False" Condition="AI_INSTALL AND CustomInstallation AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND PROMPTROLLBACKCOST=&quot;D&quot;" Ordering="9" Options="2"/>
+    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="SpawnDialog" Argument="OutOfDiskDlg" Condition="AI_INSTALL AND CustomInstallation AND ( (OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 1) OR (OutOfDiskSpace = 1 AND PROMPTROLLBACKCOST=&quot;F&quot;) )" Ordering="10" Options="2"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control_="Next" Event="SpawnDialog" Argument="OutOfRbDiskDlg" Condition="AI_MAINT AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND (PROMPTROLLBACKCOST=&quot;P&quot; OR NOT PROMPTROLLBACKCOST)" Ordering="2" Options="2"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control_="Next" Event="EnableRollback" Argument="False" Condition="AI_MAINT AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND PROMPTROLLBACKCOST=&quot;D&quot;" Ordering="3" Options="2"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control_="Next" Event="SpawnDialog" Argument="OutOfDiskDlg" Condition="AI_MAINT AND ( (OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 1) OR (OutOfDiskSpace = 1 AND PROMPTROLLBACKCOST=&quot;F&quot;) )" Ordering="4" Options="2"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control_="MaintenanceWelcomeDlgDialogInitializer" Event="[AI_ButtonText_Next_Orig]" Argument="[ButtonText_Next]" Condition="AI_MAINT" Ordering="0" Options="2"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control_="MaintenanceWelcomeDlgDialogInitializer" Event="[ButtonText_Next]" Argument="[[AI_CommitButton]]" Condition="AI_MAINT" Ordering="1" Options="2"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control_="MaintenanceWelcomeDlgDialogInitializer" Event="[AI_Text_Next_Orig]" Argument="[Text_Next]" Condition="AI_MAINT" Ordering="2" Options="2"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control_="MaintenanceWelcomeDlgDialogInitializer" Event="[Text_Next]" Argument="[Text_Install]" Condition="AI_MAINT" Ordering="3" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="SpawnDialog" Argument="OutOfRbDiskDlg" Condition="AI_PATCH AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND (PROMPTROLLBACKCOST=&quot;P&quot; OR NOT PROMPTROLLBACKCOST)" Ordering="202" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="EnableRollback" Argument="False" Condition="AI_PATCH AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND PROMPTROLLBACKCOST=&quot;D&quot;" Ordering="203" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="SpawnDialog" Argument="OutOfDiskDlg" Condition="AI_PATCH AND ( (OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 1) OR (OutOfDiskSpace = 1 AND PROMPTROLLBACKCOST=&quot;F&quot;) )" Ordering="204" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="PatchWelcomeDlgDialogInitializer" Event="[AI_ButtonText_Next_Orig]" Argument="[ButtonText_Next]" Condition="AI_PATCH" Ordering="0" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="PatchWelcomeDlgDialogInitializer" Event="[ButtonText_Next]" Argument="[[AI_CommitButton]]" Condition="AI_PATCH" Ordering="1" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="PatchWelcomeDlgDialogInitializer" Event="[AI_Text_Next_Orig]" Argument="[Text_Next]" Condition="AI_PATCH" Ordering="2" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="PatchWelcomeDlgDialogInitializer" Event="[Text_Next]" Argument="[Text_Install]" Condition="AI_PATCH" Ordering="3" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Back" Event="[ButtonText_Next]" Argument="[AI_ButtonText_Next_Orig]" Condition="AI_PATCH" Ordering="0" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Back" Event="[Text_Next]" Argument="[AI_Text_Next_Orig]" Condition="AI_PATCH" Ordering="1" Options="2"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control_="LaunchButton" Event="EndDialog" Argument="Exit" Condition="AI_MAINT" Ordering="101"/>
+    <ATTRIBUTE name="DeletedRows" value="ExitDialog#LaunchBtn#DoAction#AI_LaunchApp#(AI_INSTALL OR AI_PATCH OR AI_MAINT)@ExitDialog#LaunchBtn#EndDialog#Exit#1@MaintenanceWelcomeDlg#LaunchButton#EndDialog#Exit#1"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCreateFolderComponent">
+    <ROW Directory_="APPDIR" Component_="APPDIR" ManualDelete="true"/>
+    <ROW Directory_="CaYaSafe_Dir" Component_="CaYaSafe" ManualDelete="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_AuthorSinglePackage" Type="1" Source="aicustact.dll" Target="AI_AuthorSinglePackage" WithoutSeq="true"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH_ORIGINAL" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_ChooseTextStyles" Type="1" Source="aicustact.dll" Target="ChooseTextStyles"/>
+    <ROW Action="AI_DATA_SETTER" Type="51" Source="CustomActionData" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
+    <ROW Action="AI_DeleteCadLzma" Type="51" Source="AI_DeleteLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DeleteLzma" Type="1025" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
+    <ROW Action="AI_DeleteRCadLzma" Type="51" Source="AI_DeleteRLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DeleteRLzma" Type="1281" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
+    <ROW Action="AI_DetectSoftware" Type="257" Source="SoftwareDetector.dll" Target="OnDetectSoftware"/>
+    <ROW Action="AI_DpiContentScale" Type="1" Source="aicustact.dll" Target="DpiContentScale"/>
+    <ROW Action="AI_EnableDebugLog" Type="321" Source="aicustact.dll" Target="EnableDebugLog"/>
+    <ROW Action="AI_ExtractCadLzma" Type="51" Source="AI_ExtractLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_ExtractFiles" Type="1" Source="Prereq.dll" Target="ExtractSourceFiles" AdditionalSeq="AI_DATA_SETTER"/>
+    <ROW Action="AI_ExtractLzma" Type="1025" Source="lzmaextractor.dll" Target="ExtractLZMAFiles"/>
+    <ROW Action="AI_FindExeLzma" Type="1" Source="lzmaextractor.dll" Target="FindEXE"/>
+    <ROW Action="AI_GetArpIconPath" Type="1" Source="aicustact.dll" Target="GetArpIconPath"/>
+    <ROW Action="AI_InstallModeCheck" Type="1" Source="aicustact.dll" Target="UpdateInstallMode" WithoutSeq="true"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Type="65" Source="aicustact.dll" Target="PrepareUpgrade"/>
+    <ROW Action="AI_PRESERVE_INSTALL_TYPE" Type="65" Source="aicustact.dll" Target="PreserveInstallType"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH" Target="[AI_SETUPEXEPATH_ORIGINAL]"/>
+    <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
+    <ROW Action="AI_ResolveKnownFolders" Type="1" Source="aicustact.dll" Target="AI_ResolveKnownFolders"/>
+    <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
+    <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
+    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]"/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
+    <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatCompsComponent">
+    <ROW Feature_="MainFeature" Component_="APPDIR"/>
+    <ROW Feature_="MainFeature" Component_="AI_CustomARPName"/>
+    <ROW Feature_="MainFeature" Component_="AI_INSTALLPERUSER"/>
+    <ROW Feature_="MainFeature" Component_="CaYaSafe"/>
+    <ROW Feature_="MainFeature" Component_="CaYa.exe"/>
+    <ROW Feature_="MainFeature" Component_="Gma.QrCodeNet.Encoding.dll"/>
+    <ROW Feature_="MainFeature" Component_="QrCodeGenerator.dll"/>
+    <ROW Feature_="MainFeature" Component_="QRCoder.dll"/>
+    <ROW Feature_="MainFeature" Component_="SiteEngelleyiciArayz.deps.json"/>
+    <ROW Feature_="MainFeature" Component_="SiteEngelleyiciArayz.dll"/>
+    <ROW Feature_="MainFeature" Component_="TwoFactorAuth.Net.dll"/>
+    <ROW Feature_="MainFeature" Component_="TwoFactorAuth.Net.QRCoder.dll"/>
+    <ROW Feature_="MainFeature" Component_="zxing.dll"/>
+    <ROW Feature_="MainFeature" Component_="CaYaUnkown.exe"/>
+    <ROW Feature_="MainFeature" Component_="SiteEngellemeTitile2.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoreconsolel110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoredatetimel110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoredebugl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoreerrorhandlingl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincorefilel110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincorefilel120.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincorefilel210.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincorehandlel110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoreheapl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoreinterlockedl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincorelibraryloaderl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincorelocalizationl120.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincorememoryl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincorenamedpipel110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoreprocessenvironmentl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoreprocessthreadsl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoreprocessthreadsl111.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoreprofilel110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincorertlsupportl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincorestringl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoresynchl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoresynchl120.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoresysinfol110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoretimezonel110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoreutill110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtconiol110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtconvertl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtenvironmentl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtfilesysteml110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtheapl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtlocalel110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtmathl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtprocessl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtruntimel110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtstdiol110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtstringl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrttimel110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtutilityl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="base_library.zip"/>
+    <ROW Feature_="MainFeature" Component_="CaYaSafe32.exe"/>
+    <ROW Feature_="MainFeature" Component_="cacert.pem"/>
+    <ROW Feature_="MainFeature" Component_="md.cp310win_amd64.pyd"/>
+    <ROW Feature_="MainFeature" Component_="libcrypto1_1.dll"/>
+    <ROW Feature_="MainFeature" Component_="libffi7.dll"/>
+    <ROW Feature_="MainFeature" Component_="libssl1_1.dll"/>
+    <ROW Feature_="MainFeature" Component_="python310.dll"/>
+    <ROW Feature_="MainFeature" Component_="ucrtbase.dll"/>
+    <ROW Feature_="MainFeature" Component_="VCRUNTIME140.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoreconsolel110.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoredatetimel110.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoredebugl110.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoreerrorhandlingl110.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincorefilel110.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincorefilel120.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincorefilel210.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincorehandlel110.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoreheapl110.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoreinterlockedl110.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincorelibraryloaderl110.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincorelocalizationl120.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincorememoryl110.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincorenamedpipel110.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoreprocessenvironmentl110.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoreprocessthreadsl110.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoreprocessthreadsl111.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoreprofilel110.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincorertlsupportl110.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincorestringl110.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoresynchl110.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoresynchl120.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoresysinfol110.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoretimezonel110.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoreutill110.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtconiol110.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtconvertl110.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtenvironmentl110.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtfilesysteml110.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtheapl110.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtlocalel110.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtmathl110.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtprocessl110.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtruntimel110.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtstdiol110.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtstringl110.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrttimel110.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtutilityl110.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="base_library.zip_1"/>
+    <ROW Feature_="MainFeature" Component_="libcrypto1_1.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="libffi7.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="libssl1_1.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="_psutil_windows.pyd"/>
+    <ROW Feature_="MainFeature" Component_="python3.dll"/>
+    <ROW Feature_="MainFeature" Component_="python310.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="AI_ExePath"/>
+    <ROW Feature_="MainFeature" Component_="ucrtbase.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="VCRUNTIME140.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="CaYa.exe_1"/>
+    <ROW Feature_="MainFeature" Component_="CaYaLabOffline.deps.json"/>
+    <ROW Feature_="MainFeature" Component_="CaYaLabOffline.dll"/>
+    <ROW Feature_="MainFeature" Component_="cyRUN"/>
+    <ROW Feature_="MainFeature" Component_="cyRUN.exe"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
+    <ROW Name="WindowsUpdateImportant_1.exe" SourcePath="..\..\..\..\..\..\Windows.old\Windows\UUS\amd64\WindowsUpdateImportant.ico" Index="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
+    <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="746"/>
+    <ROW Action="AI_STORE_LOCATION" Condition="(Not Installed) OR REINSTALL" Sequence="1501"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1397"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+    <ROW Action="AI_GetArpIconPath" Sequence="1401"/>
+    <ROW Action="AI_DetectSoftware" Sequence="102"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99" Builds="DefaultBuild"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="101" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="199" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteRCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="198" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="197" Builds="DefaultBuild"/>
+    <ROW Action="AI_FindExeLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="196" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="1549" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteRLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="1548" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="6599" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractFiles" Sequence="1399" Builds="DefaultBuild"/>
+    <ROW Action="AI_DATA_SETTER" Sequence="1398"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
+    <ROW Action="AI_PRESERVE_INSTALL_TYPE" Sequence="199"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="746"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="53"/>
+    <ROW Action="AI_DpiContentScale" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="102"/>
+    <ROW Action="AI_ChooseTextStyles" Sequence="74"/>
+    <ROW Action="AI_DetectSoftware" Sequence="101"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
+    <ROW Condition="((VersionNT &lt;&gt; 501) AND (VersionNT &lt;&gt; 502))" Description="[ProductName] cannot be installed on [WindowsTypeNT5XDisplay]." DescriptionLocId="AI.LaunchCondition.NoNT5X" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT &lt;&gt; 400)" Description="[ProductName] cannot be installed on [WindowsTypeNT40Display]." DescriptionLocId="AI.LaunchCondition.NoNT40" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT &lt;&gt; 500)" Description="[ProductName] cannot be installed on [WindowsTypeNT50Display]." DescriptionLocId="AI.LaunchCondition.NoNT50" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="SETUPEXEDIR OR (REMOVE=&quot;ALL&quot;)" Description="This package can only be run from a bootstrapper." DescriptionLocId="AI.LaunchCondition.RequireBootstrapper" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="VersionNT" Description="[ProductName] cannot be installed on [WindowsType9XDisplay]." DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegLocatorComponent">
+    <ROW Signature_="AI_EXE_PATH_CU" Root="1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Type="2"/>
+    <ROW Signature_="AI_EXE_PATH_LM" Root="2" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Type="2"/>
+    <ROW Signature_="AI_INSTALLPERUSER" Root="2" Key="Software\[Manufacturer]\[UpgradeCode]" Name="AI_INSTALLPERUSER" Type="2"/>
+    <ROW Signature_="AI_INSTALLPERUSER_1" Root="1" Key="Software\[Manufacturer]\[UpgradeCode]" Name="AI_INSTALLPERUSER" Type="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegsComponent">
+    <ROW Registry="AI_ExePath" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Value="[AI_SETUPEXEPATH]" Component_="AI_ExePath"/>
+    <ROW Registry="AI_INSTALLPERUSER" Root="-1" Key="Software\[Manufacturer]\[UpgradeCode]" Name="AI_INSTALLPERUSER" Value="[AI_INSTALLPERUSER]" Component_="AI_INSTALLPERUSER"/>
+    <ROW Registry="AdvancedInstaller" Root="-1" Key="Software\Caphyon\Advanced Installer" Name="\"/>
+    <ROW Registry="Caphyon" Root="-1" Key="Software\Caphyon" Name="\"/>
+    <ROW Registry="Comments" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="Comments" Value="[ARPCOMMENTS]" Component_="AI_CustomARPName"/>
+    <ROW Registry="Contact" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="Contact" Value="[ARPCONTACT]" Component_="AI_CustomARPName"/>
+    <ROW Registry="CurrentVersion" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion" Name="\"/>
+    <ROW Registry="CurrentVersion_1" Root="1" Key="Software\Microsoft\Windows\CurrentVersion" Name="\"/>
+    <ROW Registry="DisplayIcon" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="DisplayIcon" Value="[ARP_ICON_PATH]" Component_="AI_CustomARPName"/>
+    <ROW Registry="DisplayName" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="DisplayName" Value="[AI_PRODUCTNAME_ARP]" Component_="AI_CustomARPName"/>
+    <ROW Registry="DisplayVersion" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="DisplayVersion" Value="[ProductVersion]" Component_="AI_CustomARPName"/>
+    <ROW Registry="EstimatedSize" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="EstimatedSize" Value="#[AI_ARP_SIZE]" Component_="AI_CustomARPName" VirtualValue="#"/>
+    <ROW Registry="HelpLink" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="HelpLink" Value="[ARPHELPLINK]" Component_="AI_CustomARPName"/>
+    <ROW Registry="HelpTelephone" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="HelpTelephone" Value="[ARPHELPTELEPHONE]" Component_="AI_CustomARPName"/>
+    <ROW Registry="InstallLocation" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="InstallLocation" Value="[APPDIR]" Component_="AI_CustomARPName"/>
+    <ROW Registry="LZMA" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA" Name="\"/>
+    <ROW Registry="Manufacturer" Root="-1" Key="Software\[Manufacturer]" Name="\"/>
+    <ROW Registry="Microsoft" Root="-1" Key="Software\Microsoft" Name="\"/>
+    <ROW Registry="Microsoft_1" Root="1" Key="Software\Microsoft" Name="\"/>
+    <ROW Registry="ModifyPath" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="ModifyPath" Value="[AI_UNINSTALLER] /i [ProductCode] AI_UNINSTALLER_CTP=1" Component_="AI_CustomARPName"/>
+    <ROW Registry="NoRepair" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="NoRepair" Value="#1" Component_="AI_CustomARPName" VirtualValue="#"/>
+    <ROW Registry="ProductCode" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]" Name="\"/>
+    <ROW Registry="ProductNameProductVersion" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="\"/>
+    <ROW Registry="ProductVersion" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="\"/>
+    <ROW Registry="Publisher" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="Publisher" Value="[Manufacturer]" Component_="AI_CustomARPName"/>
+    <ROW Registry="Readme" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="Readme" Value="[ARPREADME]" Component_="AI_CustomARPName"/>
+    <ROW Registry="Run_1" Root="1" Key="Software\Microsoft\Windows\CurrentVersion\Run" Name="\"/>
+    <ROW Registry="Software" Root="-1" Key="Software" Name="\"/>
+    <ROW Registry="Software_2" Root="1" Key="Software" Name="\"/>
+    <ROW Registry="URLInfoAbout" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="URLInfoAbout" Value="[ARPURLINFOABOUT]" Component_="AI_CustomARPName"/>
+    <ROW Registry="URLUpdateInfo" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="URLUpdateInfo" Value="[ARPURLUPDATEINFO]" Component_="AI_CustomARPName"/>
+    <ROW Registry="Uninstall" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall" Name="\"/>
+    <ROW Registry="UninstallPath" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="UninstallPath" Value="[AI_UNINSTALLER] /x [ProductCode] AI_UNINSTALLER_CTP=1" Component_="AI_CustomARPName"/>
+    <ROW Registry="UninstallString" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="UninstallString" Value="[AI_UNINSTALLER] /x [ProductCode] AI_UNINSTALLER_CTP=1" Component_="AI_CustomARPName"/>
+    <ROW Registry="UpgradeCode" Root="-1" Key="Software\[Manufacturer]\[UpgradeCode]" Name="\"/>
+    <ROW Registry="VersionMajor" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="VersionMajor" Value="#1" Component_="AI_CustomARPName" VirtualValue="#"/>
+    <ROW Registry="VersionMinor" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="VersionMinor" Value="#0" Component_="AI_CustomARPName" VirtualValue="#"/>
+    <ROW Registry="Windows" Root="-1" Key="Software\Microsoft\Windows" Name="\"/>
+    <ROW Registry="Windows_1" Root="1" Key="Software\Microsoft\Windows" Name="\"/>
+    <ROW Registry="cyRUN" Root="1" Key="Software\Microsoft\Windows\CurrentVersion\Run" Name="cyRUN" Value="runas /user:Administrator &quot;[#cyRUN.exe]&quot;" Component_="cyRUN"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
+    <ATTRIBUTE name="UsedTheme" value="appinstaller"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="0.0.1" VersionMax="[|ProductVersion]" Attributes="257" ActionProperty="OLDPRODUCTS"/>
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.NotesComponent">
+    <ROW Type="2" DisplayString="Product Details" Note="{\rtf1\ansi\ansicpg1254\deff0\deflang1055{\fonttbl{\f0\fnil\fcharset162 MS Shell Dlg 2;}}&#13;&#10;\viewkind4\uc1\pard\f0\fs17\par&#13;&#10;}&#13;&#10;" ViewId="Product Details"/>
+  </COMPONENT>
+</DOCUMENT>

@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34202.233
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteEngelleyiciArayüz", "SiteEngelleyiciArayüz\SiteEngelleyiciArayüz.csproj", "{5D64E2D3-53B0-40C5-B7E4-761E2A179E43}"
+EndProject
+Project("{840C416C-B8F3-42BC-B0DD-F6BB14C9F8CB}") = "CaYaLab", "CaYaLab\CaYaLab.aiproj", "{D6D60A8E-1456-4B96-93E2-45202C3FB269}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		DefaultBuild|Any CPU = DefaultBuild|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5D64E2D3-53B0-40C5-B7E4-761E2A179E43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D64E2D3-53B0-40C5-B7E4-761E2A179E43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D64E2D3-53B0-40C5-B7E4-761E2A179E43}.DefaultBuild|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D64E2D3-53B0-40C5-B7E4-761E2A179E43}.DefaultBuild|Any CPU.Build.0 = Debug|Any CPU
+		{5D64E2D3-53B0-40C5-B7E4-761E2A179E43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D64E2D3-53B0-40C5-B7E4-761E2A179E43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6D60A8E-1456-4B96-93E2-45202C3FB269}.Debug|Any CPU.ActiveCfg = DefaultBuild
+		{D6D60A8E-1456-4B96-93E2-45202C3FB269}.Debug|Any CPU.Build.0 = DefaultBuild
+		{D6D60A8E-1456-4B96-93E2-45202C3FB269}.DefaultBuild|Any CPU.ActiveCfg = DefaultBuild
+		{D6D60A8E-1456-4B96-93E2-45202C3FB269}.DefaultBuild|Any CPU.Build.0 = DefaultBuild
+		{D6D60A8E-1456-4B96-93E2-45202C3FB269}.Release|Any CPU.ActiveCfg = DefaultBuild
+		{D6D60A8E-1456-4B96-93E2-45202C3FB269}.Release|Any CPU.Build.0 = DefaultBuild
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2F8D327C-F5D1-42FA-B89A-3B2E204181D9}
+	EndGlobalSection
+EndGlobal
