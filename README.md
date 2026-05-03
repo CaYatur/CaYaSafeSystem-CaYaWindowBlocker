@@ -467,7 +467,7 @@ pynput
 
 ## Lisans
 
-Bu proje [CaYaSafe Özel Lisansı](LICENSE) kapsamında lisanslanmıştır.  
+Bu proje [MIT License with Ethical Use Restriction](LICENSE) kapsamında lisanslanmıştır.  
 Ayrıntılar için `LICENSE` dosyasına bakınız.
 
 ---
