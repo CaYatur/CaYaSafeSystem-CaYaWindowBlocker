@@ -1,5 +1,11 @@
 # CaYaSafeSystem — CaYaWindowBlocker
 
+<div align="center">
+
+**[CaYaDev](https://github.com/CaYatur)** · *CaYaSafe* ürün serisi
+
+</div>
+
 > **Ebeveyn/Kurumsal Denetim & Güvenli Tarayıcı Sistemi**  
 > Windows tabanlı, çok katmanlı bir içerik filtreleme, pencere engelleme ve uzaktan yönetim platformu.
 
@@ -467,3 +473,13 @@ Ayrıntılar için `LICENSE` dosyasına bakınız.
 ---
 
 *CaYaSafeSystem — Güvenli bir dijital ortam için.*
+
+---
+
+<div align="center">
+
+Made with ❤️ by **[CaYaDev](https://github.com/CaYatur)** · *CaYaSafe* ürün serisi
+
+© 2024-2026 ÇAĞAN TURGUT
+
+</div>
