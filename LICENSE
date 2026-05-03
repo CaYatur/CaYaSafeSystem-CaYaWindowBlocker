@@ -1,0 +1,106 @@
+CaYaSafe Restricted Use License
+Copyright (c) 2024-2026 ÇAĞAN TURGUT / CaYaSafeSystem
+
+Bu yazılım ve ilgili belgeler ("Yazılım"), aşağıdaki koşullar çerçevesinde,
+ücretsiz olarak kullanılmak, kopyalanmak, değiştirilmek ve dağıtılmak üzere
+kamuoyuyla paylaşılmaktadır.
+
+───────────────────────────────────────────────────────────────────────────────
+İZİN VERİLEN KULLANIM
+───────────────────────────────────────────────────────────────────────────────
+
+Bu Yazılımı aşağıdaki amaçlarla kullanabilirsiniz:
+
+1. KİŞİSEL VEYA EĞİTİMSEL KULLANIM
+   Kendi cihazlarınızda veya ebeveyn olarak kendi çocuğunuzun cihazında
+   içerik filtreleme ve denetim amacıyla kullanmak.
+
+2. KURUMSAL KULLANIM
+   Okullar, kütüphaneler, şirketler gibi kurumlarda; çalışanlara veya
+   öğrencilere BİLGİLENDİRME YAPILARAK ve kurum yöneticisinin yazılı
+   onayıyla kurumsal cihazlarda dağıtmak.
+
+3. ARAŞTIRMA VE GELİŞTİRME
+   Akademik araştırma, güvenlik araştırması veya kişisel geliştirme
+   amacıyla incelemek ve değiştirmek.
+
+4. YENİDEN DAĞITIM
+   Bu lisans metnini ve telif hakkı bildirimini korumak koşuluyla yazılımı
+   kaynak kodu veya ikili (binary) biçimde yeniden dağıtmak.
+
+───────────────────────────────────────────────────────────────────────────────
+YASAK OLAN KULLANIM
+───────────────────────────────────────────────────────────────────────────────
+
+Aşağıdaki kullanımlar bu lisans kapsamında AÇIKÇA YASAKLIDIR:
+
+1. İZİNSİZ GÖZETİM
+   Kişinin açık rızası olmaksızın, farkında olmadan cihazını izlemek,
+   aktivite kayıtlarını toplamak veya uzaktan erişim sağlamak.
+
+2. İZİNSİZ KURULUM
+   Sahibinin bilgisi veya onayı olmaksızın üçüncü bir kişinin cihazına
+   bu yazılımı kurmak veya çalıştırmak.
+
+3. SALDIRI VE İSTİSMAR ARAÇLARI
+   Bu yazılımı kötü amaçlı yazılım (malware), casus yazılım (spyware),
+   fidye yazılımı (ransomware) veya herhangi bir siber saldırı aracı
+   olarak kullanmak, değiştirmek veya dağıtmak.
+
+4. TİCARİ SÖMÜRÜ (İZİNSİZ)
+   Yazılımın tamamını veya önemli bir bölümünü, yazarın (ÇAĞAN TURGUT /
+   CaYaSafeSystem) önceden yazılı izni alınmaksızın ticari ürün veya
+   hizmet olarak satmak ya da kiralamak.
+
+5. YASAL SINIR İHLALİ
+   Herhangi bir ülkenin kişisel verilerin korunması, gizlilik veya bilişim
+   suçlarına ilişkin mevzuatını (Türkiye'de 5651, 5237 TCK md. 135-138,
+   6698 KVKK; AB'de GDPR vb.) ihlal eden biçimde kullanmak.
+
+6. MARKA KÖTÜYE KULLANIMI
+   "CaYaSafeSystem", "CaYaBlockWeb" veya "CaYa" marka/ürün adlarını;
+   sahibinin onayı olmaksızın yanıltıcı biçimde kullanmak.
+
+───────────────────────────────────────────────────────────────────────────────
+SORUMLULUK REDDİ
+───────────────────────────────────────────────────────────────────────────────
+
+BU YAZILIM "OLDUĞU GİBİ" (AS-IS) SAĞLANMAKTADIR; AÇIK VEYA ZIMNİ HİÇBİR
+GARANTİ VERİLMEMEKTEDİR. BU LİSANS KOŞULLARINI İHLAL EDEN VEYA ÜÇÜNCÜ
+TARAFLARA ZARAR VEREN KULLANIMLARIN SORUMLULUĞU TAMAMEN KULLANICIYA AİTTİR.
+
+YAZAR, BU YAZILIMIN YASADIŞI, ETİK DIŞI VEYA YETKİSİZ KULLANIMINDAN
+DOĞAN HİÇBİR ZARARDAN SORUMLU TUTULAMAZ.
+
+───────────────────────────────────────────────────────────────────────────────
+ATIF GEREKSİNİMİ
+───────────────────────────────────────────────────────────────────────────────
+
+Bu Yazılımın kaynak kodunu veya önemli bölümlerini kullanan ya da üzerine
+inşa eden ürün veya projelerin aşağıdaki atıfı içermesi gerekir:
+
+    "Bu ürün, CaYaSafeSystem (https://github.com/CaYatur) tarafından
+     geliştirilen CaYaSafeSystem-CaYaWindowBlocker yazılımını temel almaktadır."
+
+───────────────────────────────────────────────────────────────────────────────
+ETİK SORUMLULUK BİLDİRİMİ
+───────────────────────────────────────────────────────────────────────────────
+
+Bu yazılım; çocukları zararlı içeriklerden korumak, eğitim ortamlarında
+odaklanmayı artırmak ve kurumsal güvenliği sağlamak gibi meşru amaçlar için
+tasarlanmıştır.
+
+Bu Yazılımı kullanan her kişi ve kurum; ilgili ülke yasalarına, kişisel
+verilerin korunması mevzuatına ve temel insan haklarına saygı göstermekle
+yükümlüdür.
+
+Şüpheli veya yasadışı kullanımları bildirmek için:
+    GitHub Issues: https://github.com/CaYatur/CaYaSafeSystem-CaYaWindowBlocker/issues
+
+───────────────────────────────────────────────────────────────────────────────
+
+Bu lisansın herhangi bir hükmü hakkında soru veya ticari lisanslama talebi
+için proje sayfası üzerinden iletişime geçiniz.
+
+Copyright (c) 2024-2026 ÇAĞAN TURGUT / CaYaSafeSystem
+Tüm hakları saklıdır — yasalara aykırı kullanım kesinlikle yasaktır.
