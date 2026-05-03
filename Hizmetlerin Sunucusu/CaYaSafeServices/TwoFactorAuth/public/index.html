@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8 Basamaklı Kod Oluşturucu</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding-top: 50px;
+    }
+    #code {
+        font-size: 2em;
+    }
+</style>
+</head>
+<body>
+    <div id="code">00000000</div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js"></script>
+    <script>
+        const socket = io('http://localhost:303');
+
+        socket.on('code', (code) => {
+            document.getElementById("code").innerText = code;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{
+   "name": "CaYaBlockWeb",
+   "action": {
+      "default_icon": {
+         "16": "images/browser_action/disabled_16.png",
+         "32": "images/browser_action/disabled_32.png"
+      },
+      "default_title": "__MSG_res_PRODUCT_NAME_TRADEMARKED__"
+   },
+   "content_security_policy": {
+      "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; worker-src 'self' 'wasm-unsafe-eval'; default-src 'self'; style-src 'self' 'unsafe-inline'; style-src-elem 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' data: https://fonts.gstatic.com; img-src data:; connect-src 'self' https://publicsuffix.org"
+   },
+   "default_locale": "en",
+   "description": "CaYaBlockWeb - Web Protection Extension by CaYaSafeSystem",
+   "host_permissions": [ "\u003Call_urls>" ],
+   "icons": {
+      "128": "images/webadvisor.png"
+   },
+   "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
+   ],
+   "background.service_worker": {
+      "scripts": ["background.js"],
+      "persistent": false
+   },
+   "manifest_version": 3,
+   "permissions": [ "activeTab", "alarms", "declarativeNetRequest", "downloads", "nativeMessaging", "scripting", "storage", "tabs", "unlimitedStorage", "webRequest" ],
+   "version": "8.25443.533.45443"
+}
